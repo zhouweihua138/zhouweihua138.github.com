@@ -2,7 +2,9 @@
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui"/>
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <title>H5移动页面</title>
       <style>
           *{
@@ -61,7 +63,7 @@ select:-webkit-autofill
               height:4rem;
               line-height:4rem;
               background:#009be0;
-              font-size:3rem;
+              font-size:2.4rem;
               text-align:center;
               color:#fff;
           }
@@ -86,7 +88,13 @@ select:-webkit-autofill
       </style>
   </head>
   <body>
-      <header>H5</header>
+      <header>
+          <a class="nav-btn" id="nav-left" href="javascript:void(0);">返回</a>
+          <h1>
+            H5
+          </h1>
+          <a class="nav-btn" id="nav-right" href="javascript:void(0);">更多</a>
+      </header>
       <section class="main">
           <p>qwerertrtyrutyuyytyuytruytu</p>
           <p>a</p>

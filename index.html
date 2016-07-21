@@ -7,9 +7,103 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <title>qu0763 - 去清远旅游网</title>
     <link href="css/base.css" rel="stylesheet" />
+<style>
+.banner {
+    position: relative;
+    width: 100%;
+    height: 190px;
+    overflow: hidden;
+}
+.banner .hd {
+    position: absolute;
+    height: 6px;
+    z-index: 1;
+    left: 50%;
+    -webkit-transform: translate(-50%,0);
+    -moz-transform: translate(-50%,0);
+    -o-transform: translate(-50%,0);
+    transform: translate(-50%,0);
+    bottom: 5px;
+}
+.banner .hd li {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.5);
+    float: left;
+    margin-right: 10px;
+    text-indent:-9999px;
+}
+.banner .hd li.on {
+    background:#fff;
+}
+.banner .bd {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.banner .bd li {
+    width: 100%;
+    height: 100%;
+}
+.banner .bd li img {
+    display: block;
+    width: 100%;
+    height: 190px;
+}
+</style>
 </head>
-<body>
-
+<body ontouchstart>
+    <header class="ub navbar">
+        <a class="ub ub-ac ub-pc navbar-btn" href="javascript:;">首页</a>
+        <h1 class="ub-f1">旅游网</h1>
+        <a class="ub ub-ac ub-pc navbar-btn" href="javascript:;">更多</a>
+    </header>
+    <section class="main">
+        <article>
+            <div class="banner" id="banner">
+                <div class="hd">
+                    <ul></ul>
+                </div>
+                <div class="bd">
+                    <ul>
+                        <li>
+                            <img src="images/banner1.jpg">
+                        </li>
+                        <li>
+                            <img src="images/banner2.jpg">
+                        </li>
+                        <li>
+                            <img src="images/banner3.jpg">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+    </section>
+    <footer>
+    </footer>
     <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/TouchSlide.1.1.js"></script>
+    <script>
+        $(function () {
+            //bannner切换
+            setTimeout(function () {
+                TouchSlide({
+                    slideCell: 'banner',
+                    titCell: ".hd ul",
+                    mainCell: ".bd ul",
+                    autoPage: "true",
+                    autoPlay: "true",
+                    effect: "leftLoop",
+                    delayTime: 500,
+                    interTime: 4000
+                });
+                $('#homeBanner .hd ul li').each(function () {
+                    $(this).html('');
+                });
+            }, 1000);
+        })
+    </script>
 </body>
 </html>

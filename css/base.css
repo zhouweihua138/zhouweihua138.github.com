@@ -18,13 +18,7 @@ ul,ol{list-style-type:none;}
 li{list-style:none outside none;}
 a{text-decoration:none;-webkit-tap-highlight-color:transparent;}
 img{border:none;}
-input:-webkit-autofill, 
-textarea:-webkit-autofill, 
-select:-webkit-autofill
-{
-    background:#fff;
-}
-input[type=text], input[type=number]
+input[type=text], input[type=number],input[type=password],input[type=tel]
 {
     outline:none;
 }
@@ -33,6 +27,7 @@ input[type=text], input[type=number]
 {
     display:-webkit-box;
     display:-moz-box;
+    display:-o-box;
     display:box;
 }
 .ub-ver

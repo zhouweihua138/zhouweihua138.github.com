@@ -21,6 +21,7 @@ html, body{
 }
 .top-header-left p{
     color: #909090;
+    color: #fff;
     font-size: .7em;
     margin: 0.5em 0 0 16em;
     text-transform: uppercase;
@@ -28,11 +29,12 @@ html, body{
 }
 .top-header{
     background: #353535;
+    background: #00C2F3;
     padding: .7em 0;
 }
 .top-header-right{
 	float:right;
-	width:25%;
+	/*width:25%;*/
 }
 .top-header-right-info{
 	float:left;
@@ -46,7 +48,7 @@ html, body{
 	margin:0 1em;
 }
 .top-header-right-info ul li a {
-	color: #909090;
+	color: #fff;
     font-size: .7em;
     margin: 0;
     text-transform: uppercase;
@@ -55,6 +57,7 @@ html, body{
 .top-header-right-info ul li a:hover{
 	text-decoration:none;
 	color:#2DCB74;
+    color: #000;
 }
 .social-icons{
 	float:left;
@@ -126,10 +129,10 @@ div#bs-example-navbar-collapse-1 {
     box-shadow: 1px 0px 0px 0px rgba(72, 72, 72, 0);
 }
 .top-nav ul li a:hover{
-    color: #2DCB74 !important;
+    color: #00C2F3 !important;
 }
 .top-nav ul li a.active{
-    color: #2DCB74 !important;
+    color: #00C2F3 !important;
 }
 .caret {
     margin-left: 14px;

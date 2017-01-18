@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>注册 - 比呀比海外购</title>
+    <link rel="stylesheet" href="/Content/hDialog.css">
+    <link rel="stylesheet" href="/Content/style.css">
+</head>
+<body class="snd bd-register">
+    <div class="down-app">
+        <a class="logo-img" href="javascript:;"></a>
+        <div>
+            <p>新用户注册立赠<span><b>200</b>元</span>优惠券</p>
+            <p>开启高品质跨境购物之旅</p>
+        </div>
+        <a class="close-download" href="javascript:;"></a>
+        <a class="download-img" href="/down">下载APP</a>
+    </div>
+    <div class="header-box">
+        <div class="ub uc-header header">
+            <a class="ub go-back" href="javascript:history.back();"></a>
+            <h4 class="ub-f1">注册</h4>
+            <a class="ub go-home" href="/index.html"></a>
+        </div>
+    </div>
+    <div class="login-form cl register-form">
+        <form action="/user/register" id="frm" method="post">
+            <input class="text" data-val="true" data-val-regex="手机格式不正确" data-val-regex-pattern="\d{11}" data-val-required="The mobile field is required." id="mobile" name="mobile" placeholder="手机号" type="text" value="" />
+            <input class="text code" data-val="true" data-val-required="The captcha field is required." id="validateCode" name="captcha" placeholder="验证码" type="text" value="" />
+            <a class="text get-code">获取验证码</a>
+            <input class="text" data-val="true" data-val-length="nickname 必须至少包含 6 个字符。" data-val-length-max="100" data-val-length-min="6" data-val-required="The nickname field is required." id="username" name="nickname" placeholder="昵称" type="text" value="" />
+            <input class="text" data-val="true" data-val-required="The password field is required." id="password" name="password" placeholder="密码" type="password" />
+            <input type="button" id="btnRegister" class="text login-btn" value="注册">
+        </form>
+    </div>
+
+    <div class="sendcode-dialog-box">
+        <div class="sendcode-dialog-mask"></div>
+        <div class="sendcode-dialog">
+            <a class="sendcode-btn-close" href="javascript:;">
+                <img src="images/icon_close_pink.png">
+            </a>
+            <p class="sendcode-title">安全验证</p>
+            <div class="ub sendcode-content">
+                <input class="ub ub-f1 textvalidcode" maxlength="6" type="text" placeholder="请输入右图中的字符">
+                <a class="valid-img" href="javascript:;"><img id="phoneImage" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJoAAABBCAIAAACmZCqsAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAxRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMDY3IDc5LjE1Nzc0NywgMjAxNS8wMy8zMC0yMzo0MDo0MiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NUFFNjREODA2NDU2MTFFNkE3NjA5OTM5RUQ4QzM5NzAiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NUFFNjREN0Y2NDU2MTFFNkE3NjA5OTM5RUQ4QzM5NzAiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgV2luZG93cyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSIxNzNBNkM0NkEyN0NDNkNFN0I0NEFFRTkxRTk0NUE2QyIgc3RSZWY6ZG9jdW1lbnRJRD0iMTczQTZDNDZBMjdDQzZDRTdCNDRBRUU5MUU5NDVBNkMiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz73QvJOAAAHK0lEQVR42uya7UtVSxTG65IGlVCJWpJ1tbwQKhVRVqQSUmAE0Zf+yL6IIBwoJXwhybQilSiLfEkrohdQg+xD98dZMAwzs2fvc/Y5BrGeD3KcM3te1rPWs9bMPrt///69S/G3YLfSqXQqlE6F0qlQOpVOhdKpUDoVSqdC6VQ6FUqnQulUKJ0KpVPpVCidCqVToXQqlE6lU6F0Kv4g/invsfX19UKh8PnzZ7WgAda4d+/er1+/7MalpSUayzbU9+/fefzHjx/VpfPTp08bGxv79+/Pwnr21ew8MNbCwkJFhhJr1NTU2I21tbX8bWhoeP369ejoqEN2KuTx7Njj/M+sz58/dxqPHj3a09Nj/oWexcXFurq6ubm57u7uyOjNzc0QPzY21tfXt2/fPvHW6enpLCu7deuWPBJHfMA7d+449nWwd+/eVKfMAzP7sWPHVldXx8fHe3t740vKA5fO/4pwCN7a2rJbXr16deLEia6urgcPHvCt09/BuXPnnj17Zhj9twinDx2kZ9IgdMCBgl/dvXvXH1Ck79GjR6mGw/3LphO3Hh4e9sPdfD579uyhQ4fkM3uHyJGRkadPn8ZjoJJ0CtCfxsZGJILPcGlvGDNhWQmdK1euPHz4EIsEDeowmhrK8REM2Y8fPz5w4EBHR0f8EZZdqlKVCiyAMzns2i1iLjtS8ent7e2g82HJpIl8pxHcuHHj4MGDmehkbqGT6Q2dSP/MzAxOJzJIh2vXrrEO+qTGaEUsyAKWl5fZRtAcFy9eNI7FkmC97ImGhoZ+/vzpNJJfBgYGcnpAMIOIhR1XMC7i5x1p9/11T9LERKd82NzcbGlpkc/z8/MMYTMnjCJr5Eg7v1YJa2tr2NRxSQNbJCA+SKev23ZYmCqBbaI94tAmSZP8IjLri22ksb29vVIunolOwzxuLq5BmlxZWbl+/brTkz2jIbOzs3j06dOn42GaExj05MmTQWmFZrsFLzR5K0m3xdC4o9DmVwkZZVZOFPfv30e3nO0L8akVWRXplGLaRDcHEqgVp0blglpBuPT395PVpCpmS77/2orBaHhJqakUk339+vXSpUv+V760BlNU9SDlYZIrY9I/SSflu03t+/fviUu8mH+DYgLIW91F+P4r1Np+UF4xicnIZ4ODg6bFBJYvrURnMI6T8pZf9KViYmLiw4cPdgt53bGJ6L+tcHi8WfZO0GnXhHyGWvv04qfrimCxiEjRsb6+jrHsEzCOZazvSyuikhoQOe83zEoKhQJZJqm8x4BMJPmeCoOsWSUuE6PT0Mk6ql3uZykNWMaTJ0+c7GgDEW5qanLyRWqoibMa2SCGguk29R6DByNHNWQDb5NkQTSTdHZUbJn7y5cvtqjKZzufy8HAFg2Uh3UHKcmZxuBybGzsyJEj2BrvDvofsThdRPC4lnTB9O3bN1uiy1vny5cvCU1TDfnqxRTiXu/evcNrI1ddSYksqYrORKd/MSTJDy6RfmzaUAS6R04VOumA38FuUiGQh06sgEKQlZk96SItKQWI2yVZkIXhJXnWJve9Yq4kGcNiFOStra1y/RLsI55U6rmzhINK0jFgZmZGshqFxuTkZGdnJ9aEV9itUkroKKLsxyMS/ebNmwsXLtiyVGqNRoWIMPhKZtcZRCdqNzU1FQlNXIFvsxfAdKO/3zmdTjTEZFPc8O3bt2QLUkVzczOJh9CRRhGcJJhSmXCpXiFQ0lWfXL+xizzj2/Va8JJPpmD7+Mrly5cjB9mSbhUgMtg/TKccqFkBEkq1bSsJQUm2kMwPhbRTc8ZrAfM4Palobt68WUHCIrfziD8LS6ITRTl16lT1PElKJHydeOB8hXpleUFU4VJooQjmRiLOnz9vTkvGKOQA6GSJVN6SMyiC4qFpohwuz5w5k+dAjXs59YJzy+MXO0E65R2fk8mcs41/J45Z/BDHLYLlDGJI1mQiZJYHWfkOKNOeLInKPrqw4du3b9t2YaEQH5mDx/FTdhU5nGWEc+4sW2xnZ2fZph8udmfnsG/f2Zoiq76+/vDhw/Z1hPOOhV0TGKyZIHnx4kV/f7/R+WpQm6kUsl+qBC+34jLC6QK1Qdn4YL8bd0TS18zIlYXcAMBWfOrgURKxIY/IZSHj1BRBI0VT6mj2TbWzPIayd4cawSX+IROhZNRN8noYzaDayPlypmQ6RRyIrY8fPyKShUIBOQr2NJdb/h20uDxenKc6NeOYuwL/Ejy4fhbW1tbmcInRr169KrrKX7k1JO7tUgXm8BU7gEgu5s1S6kEZL8c7bS1hIsbnYMqwDJ7zgJSE2C/5ZOf47PHjx/OTsWOg4OIEJUcUCjfbvYgYZBZWqvHaR+RXLltglJzqzyK/kUB+oTZLZSRXExl/Z7NLf5j5l0HpVDoVSqdC6VQonUqnQulUKJ0KpVOhdCqdCqVToXQqlE6F0ql0KpROhdKpUDoVifhfgAEA/G7FayeAsI4AAAAASUVORK5CYII="></a>
+            </div>
+            <div class="sendcode-btn-box">
+                <a class="sendcode-btn-ok" href="javascript:;">确认</a>
+            </div>
+        </div>
+    </div>
+    <p class="byb-agreement">注册即代表您同意<a href="/biyabimobile/serviceagreement.html">《比呀比用户协议》</a></p>
+
+    <script src="/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/scripts/jquery.cookie.js"></script>
+    <script src="/scripts/jsencrypt.min.js"></script>
+    <script src="/scripts/hDialog.js"></script>
+    <script src="/scripts/public.js"></script>
+    <script src="/scripts/UserRegister.js"></script>
+</body>
+</html>

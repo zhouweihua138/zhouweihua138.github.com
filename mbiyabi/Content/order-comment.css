@@ -1,0 +1,172 @@
+﻿/* 
+ * CreateBy: wywar
+ * CreateTime: 2016-6-24
+ * Email: zhouweihua@biyabi.com
+ * 订单评价-页面样式
+ */
+
+/* 顶部导航栏 */
+body {
+    margin:49px 0 0;
+    background:#fff;
+}
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:49px;
+    line-height:49px;
+    background:#e72b41;
+    color:#fff;
+    border-bottom:1px solid #e4e4e4;
+    z-index:9999;
+}
+.navbar .navbar-btn{
+    height:49px;
+    width:49px;
+    padding:12px 10px;
+    -webkit-box-align:center;
+    -webkit-box-pack:center;
+}
+.navbar .navbar-btn img{
+    max-height:100%;
+    max-width:100%;
+}
+.navbar h1{
+    font-size:18px;
+    font-weight:400;
+    text-align:center;
+}
+.section-box{
+    margin:10px 0;
+    padding:10px;
+    background:#fff;
+    border-top:1px solid #e8e8e8;
+    border-bottom:1px solid #e8e8e8;
+}
+.order-id{
+    margin:0;
+    color:#919191;
+    border:none;
+}
+.order-id span{
+    color:#000;
+}
+.goods-item{
+    margin-top:0;
+    border-top:none;
+}
+.goods-item .item-detail {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -o-box;
+    display: box;
+    padding:10px 0;
+    line-height:21px;
+    border-bottom:1px solid #f2f2f2;
+}
+.goods-item .item-detail:last-of-type {
+    border:none;
+}
+.item-detail .goods-img-box {
+    width: 70px;
+    height: 70px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    margin-right: 10px;
+    -webkit-box-align:center;
+    -webkit-box-pack:center;
+    border:1px solid #ededed;
+}
+.goods-img-box > img {
+    width:auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+.item-detail .goods-text {
+     flex: 1; 
+     -webkit-flex: 1; 
+     display:block; 
+}
+.goods-text p:nth-of-type(2) {
+    color: #919191;
+}
+.goods-text p:nth-of-type(3) {
+    text-align:right;
+    color: #919191;
+}
+.text-red{
+    color:#ff4054;
+}
+.comment-title{
+    margin:10px 0;
+}
+.leavel li{
+    font-size:14px;
+}
+.leavel li a{
+    display:block;
+    padding:4px 6px 4px 32px;
+    color:#000;
+}
+.leavel .btn-nice{
+    background:url(../images/icon_favor_on.png) no-repeat 6px 50%;
+    background-size:24px;
+    color:#e72b41;
+}
+.leavel .btn-normal{
+    background:url(../images/icon_favor_yellow.png) no-repeat 6px 50%;
+    background-size:24px;
+    color:#DFBC4F;
+}
+.leavel .btn-soso{
+    background:url(../images/icon_favor_break.png) no-repeat 6px 50%;
+    background-size:24px;
+    color:#656A70;
+}
+.leavel li .btn-nice.active{
+    background:#FC5B60 url(../images/icon_favor_nice_active.png) no-repeat 6px 50%;
+    background-size:24px;
+    color:#fff;
+    border-radius:24px;
+}
+.leavel .btn-normal.active{
+    background:#EABD56 url(../images/icon_favor_white.png) no-repeat 6px 50%;
+    background-size:24px;
+    color:#fff;
+    border-radius:24px;
+}
+.leavel .btn-soso.active{
+    background:#707176 url(../images/icon_favor_break_white.png) no-repeat 6px 50%;
+    background-size:24px;
+    color:#fff;
+    border-radius:24px;
+}
+.leavel li img{
+    vertical-align:middle;
+}
+.star-list li{
+    padding:4px 0;
+    color:#525252;
+}
+.star-list li img{
+    vertical-align:middle;
+    cursor:pointer;
+}
+.star-list li img:nth-child(2n){
+    margin-right:4px;
+}
+.text-comment {
+    -webkit-appearance:none;
+    width:100%;
+    margin:15px 0 0;
+    padding:4px;
+    background:#f5f5f5;
+    font-size:14px;
+    border-radius:5px;
+    border:1px solid #e8e8e8;
+    outline:none;
+    resize:none;
+}

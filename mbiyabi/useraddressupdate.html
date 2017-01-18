@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>编辑地址 - 比呀比海外购</title>
+    <link rel="stylesheet" href="Content/hDialog.css">
+    <link rel="stylesheet" href="Content/style.css">
+</head>
+<body>
+    <div class="down-app">
+        <a class="logo-img" href="javascript:;"></a>
+        <div>
+            <p>新用户注册立赠<span><b>200</b>元</span>优惠券</p>
+            <p>开启高品质跨境购物之旅</p>
+        </div>
+        <a class="close-download" href="javascript:;"></a>
+        <a class="download-img" href="/down">下载APP</a>
+    </div>
+    <div class="header-box">
+        <div class="ub uc-header header">
+            <a class="ub go-back" href="javascript:history.back();"></a>
+            <h4 class="ub-f1">编辑地址</h4>
+            <a class="ub save-info" href="javascript:;" data-type="update"></a>
+        </div>
+    </div>
+
+
+    <div class="edit-address-info">
+        <form id="frmInsert" action="/User/UserAddressUpdate" method="post">
+
+            <input type="hidden" id="returnUrl" name="returnUrl" value="" />
+
+            <div class="ai-item cl">
+                <span>收货人</span>
+                <input id="p_strContacts" name="p_strContacts" type="text" class="input-text" placeholder="收货人" value="">
+            </div>
+            <div class="ai-item cl">
+                <span>身份证号码</span>
+                <input id="p_strIDCardNumber" name="p_strIDCardNumber" type="text" class="input-text" placeholder="身份证号码" value="">
+            </div>
+            <div class="ai-item cl">
+                <span>联系电话</span>
+                <input id="p_strMobilePhone" name="p_strMobilePhone" type="text" class="input-text" maxlength="11" placeholder="联系电话" value="">
+            </div>
+            <div class="ub ai-item cl" id="select-box">
+                <div class="ub" style="width:26%;">所在地区</div>
+                <!--<select class="ub ub-f1" id="Province" name="Province">
+                    <option selected="selected" value=""></option>
+                </select>
+                <select class="ub ub-f1" id="City" name="City">
+                    <option selected="selected" value=""></option>
+                </select>
+                <select class="ub ub-f1" id="Distinct" name="Distinct">
+                    <option selected="selected" value=""></option>
+                </select>-->
+
+            </div>
+            <div class="ai-item cl">
+                <span>街道地址</span>
+                <input id="p_strAddress" name="p_strAddress" type="text" class="input-text" placeholder="街道地址" value="">
+            </div>
+            <div class="ai-item cl">
+                <span>邮编</span>
+                <input id="p_strZipCode" name="p_strZipCode" type="text" class="input-text" placeholder="邮编" value="">
+            </div>
+            <!--省市联动-->
+            <input type="hidden" id="p_strProvinceCode" name="p_strProvinceCode" value="" />
+            <input type="hidden" id="p_strProvinceName" name="p_strProvinceName" value="" />
+            <input type="hidden" id="p_strCityCode" name="p_strCityCode" value="" />
+            <input type="hidden" id="p_strCityName" name="p_strCityName" value="" />
+            <input type="hidden" id="p_strDistrictCode" name="p_strDistrictCode" value="" />
+            <input type="hidden" id="p_strDistrictName" name="p_strDistrictName" value="" />
+
+
+            <!--地址编号-->
+            <input type="hidden" id="p_iAddressNumber" name="p_iAddressNumber" value="" />
+
+            <!--正面-->
+            <input type="hidden" class="zm" id="p_strIDCardFrontImage" name="p_strIDCardFrontImage" value="" />
+            <!--反面-->
+            <input type="hidden" class="fm" id="p_strIDCardBackImage" name="p_strIDCardBackImage" value="" />
+        </form>
+
+        <form id="frmUploadImg" enctype="multipart/form-data" action="/Upload/UploadIDCartImageBase64">
+            <div class="ai-item upload-id-img">
+                <p>上传身份证照片</p>
+                <div class="img-box">
+                    <div class="positive-img">
+                        <input type="file" id="img1" name="zm" class="inputFile">
+                        <label for="img1">
+                            <!--<img src="http://pic.biyabi.com/idcart_image/2016/7/9/20160709153734_8665_2768.png" id="preview">-->
+
+                        </label>
+                    </div>
+                    <div class="opposite-img">
+                        <input type="file" id="img2" name="fm" class="inputFile">
+                        <label for="img2">
+                            <!--<img src="http://pic.biyabi.com/idcart_image/2016/7/9/20160709153742_5885_3041.png" id="preview2">-->
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script src="/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/scripts/jquery.cookie.js"></script>
+    <script src="/scripts/MyAjaxForm.js"></script>
+    <script src="/scripts/hDialog.js"></script>
+    <script src="/scripts/public.js"></script>
+    <script src="/scripts/mobileaddress.js"></script>
+    <script src="/scripts/mobileupdateaddress.js"></script>
+
+    <script>
+        $(function () {
+            //verifyLogin();
+            var userInfo = getUserInfo();
+            if (userInfo == undefined) {
+                localStorage.returnUrl = window.location.href;
+                window.location.href = '/userlogin';
+                return;
+            }
+            var address = GetQueryString("address");
+            var returnUrl = GetQueryString("returnUrl");
+            $("#returnUrl").val(returnUrl);
+
+            $.ajax({
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    "p_iUserID": userInfo.iUserID, "p_strPwd": getstrPwd()
+                },
+                url: ajaxUrl + 'UserAddressListQuery',
+                success: function (data) {
+                    for (var i = 0; i < data.length; i++) {
+                        if (data[i].iAddressNumber == parseInt(address)) {
+                            //取得当前修改地址
+                            $("#p_strContacts").val(data[i].strContacts);
+                            $("#p_strIDCardNumber").val(data[i].strIDCardNumber);
+                            $("#p_strMobilePhone").val(data[i].strMobilePhone);
+
+                            var selectList = '';
+                            if (data[i].strProvinceCode != "" && data[i].strProvinceName != "" && data[i].strCityCode != "" && data[i].strCityName != "" && data[i].strCityCode != "" && data[i].strDistrictName != "") {
+                                selectList += '<select class="ub ub-f1" id="Province" name="Province">';
+                                selectList += '<option selected="selected" value="' + data[i].strProvinceCode + '">' + data[i].strProvinceName + '</option>';
+                                selectList += '</select>';
+                                selectList += '<select class="ub ub-f1" id="City" name="City">';
+                                selectList += '<option selected="selected" value="' + data[i].strCityCode + '">' + data[i].strCityName + '</option>';
+                                selectList += '</select>';
+                                selectList += '<select class="ub ub-f1" id="Distinct" name="Distinct">';
+                                selectList += '<option selected="selected" value="' + data[i].strDistrictCode + '">' + data[i].strDistrictName + '</option>';
+                                selectList += '</select>';
+                            } else {
+                                selectList += '<select class="ub ub-f1" id="Province" name="Province">';
+                                selectList += '<option selected="selected">--请选择--</option></select>';
+                                selectList += '<select class="ub ub-f1" id="City" name="City">';
+                                selectList += '<option selected="selected">--请选择--</option></select>';
+                                selectList += '<select class="ub ub-f1" id="Distinct" name="Distinct">';
+                                selectList += '<option selected="selected">--请选择--</option></select>';
+                            }
+                            $("#select-box").append(selectList);    //选择地区
+                            $("#p_strAddress").val(data[i].strAddress);
+                            $("#p_strContacts").val(data[i].strContacts);
+                            $("#p_strZipCode").val(data[i].strZipCode);
+                            //省市联动
+                            $("#p_strProvinceCode").val(data[i].strProvinceCode);
+                            $("#p_strProvinceName").val(data[i].strProvinceName);
+                            $("#p_strCityCode").val(data[i].strCityCode);
+                            $("#p_strCityName").val(data[i].strCityName);
+                            $("#p_strDistrictCode").val(data[i].strDistrictCode);
+                            $("#p_strDistrictName").val(data[i].strDistrictName);
+                            //地址编号
+                            $("#p_iAddressNumber").val(data[i].iAddressNumber);
+                            //身份证正反面
+                            $("#p_strIDCardFrontImage").val(data[i].strIDCardFrontImage);
+                            $("#p_strIDCardBackImage").val(data[i].strIDCardBackImage);
+                            //显示身份证图片上传位置
+                            var strpreview = '';
+                            if (data[i].strIDCardFrontImage != "") {
+                                strpreview += '<img src="' + data[i].strIDCardFrontImage + '" id="preview">';
+                            } else {
+                                strpreview += '<img src="images/fm-img.png" id="preview">';
+                            }
+                            var strpreview2 = '';
+                            if (data[i].strIDCardFrontImage != "") {
+                                strpreview2 += '<img src="' + data[i].strIDCardBackImage + '" id="preview2">';
+                            } else {
+                                strpreview2 += '<img src="images/zm-img.png" id="preview2">';
+                            }
+                            $(".positive-img>label").append(strpreview);
+                            $(".opposite-img>label").append(strpreview2);
+
+                        }
+                    }
+                }
+            });
+        })
+    </script>
+</body>
+</html>

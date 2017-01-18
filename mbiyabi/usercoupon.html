@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>我的优惠券 - 比呀比海外购</title>
+    <link rel="stylesheet" href="/Content/base.css">
+    <link rel="stylesheet" href="/Content/style.css">
+    <link rel="stylesheet" href="/Content/usercoupon.css">
+</head>
+<body>
+    <div class="down-app">
+        <a class="logo-img" href="javascript:;"></a>
+        <div>
+            <p>新用户注册立赠<span><b>200</b>元</span>优惠券</p>
+            <p>开启高品质跨境购物之旅</p>
+        </div>
+        <a class="close-download" href="javascript:;"></a>
+        <a class="download-img" href="/down">下载APP</a>
+    </div>
+    <div class="header-box">
+        <div class="ub uc-header header">
+            <a class="ub go-back" href="javascript:history.back();"></a>
+            <h4 class="ub-f1">我的优惠券</h4>
+            <a class="ub other-control" href="/coupon.html">领券</a>
+        </div>
+    </div>
+    <ul class="coupon-list">
+        <!--<li>
+            <a class="ub" href="/user/usercoupondetail/483">
+                <div class="left">
+                    <div class="content-box">
+                        <i>￥</i>
+                        <b>20</b>
+                        <h5>20元8月1日活动免邮券</h5>
+                        <p>2016.07.26-2016.08.31</p>
+                    </div>
+                </div>
+                <div class="right ub ub-f1 ub-ac ub-pc">
+                    <label>未使用</label>
+                </div>
+            </a>
+        </li>-->
+    </ul>
+
+    <div class="footbar">
+        <a class="btn-add-coupon" href="/bindUserCouponCode.html">
+            <img src="images/icon_plus.png" alt="添加" />绑定
+        </a>
+    </div>
+
+    <script src="/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/scripts/jquery.cookie.js"></script>
+    <script src="/scripts/public.js"></script>
+
+    <script>
+        $(function () {
+            verifyLogin();
+            if (!getHasHistory()) {   //如果当前页没有历史记录
+                $(".uc-header .go-back").removeClass("go-back").attr("href", "javascript:;");
+            }
+            var userInfo = getUserInfo();
+            $.ajax({
+                type: 'post',
+                dataType: 'json',
+                data: { "pageIndex": 1, "pageSize": 100, "userID": userInfo.iUserID, "giftID": 0, "giftType": 0, "auditType": 0 },
+                url: ajaxUrl + 'GetUserExChangeListQueryJson',
+                async: false,
+                success: function (data) {
+                    if (data) {
+                        var couponListHtml = '';
+                        for (var i = 0; i < data.length; i++) {
+                            couponListHtml += '<li><a class="ub" href="/user/usercoupondetail/' + data[i].GiftID + '">';
+                            couponListHtml += '<div class="left"><div class="content-box"><i>￥</i>';
+                            couponListHtml += '<b>' + formatDiscountsExceptComma(data[i].Discounts) + '</b>';
+                            couponListHtml += '<h5>' + data[i].GiftName + '</h5>';
+                            //couponListHtml += '<p>' + formatDateForCoupon(data[i].StartTime) + "-" + formatDateForCoupon(data[i].EndTime) + '</p></div></div>';
+                            couponListHtml += '<p>' + data[i].StartTime + "-" + data[i].EndTime + '</p></div></div>';
+                            couponListHtml += '<div class="right ub ub-f1 ub-ac ub-pc">';
+                            if (data[i].IsUse == 1) {
+                                couponListHtml += '<label>已使用</label></div></a></li>';
+                            } else if (data[i].IsUse == 2) {
+                                couponListHtml += '<label>未使用</label></div></a></li>';
+                            }
+                        }
+                    }
+                    $(".coupon-list").append(couponListHtml);
+                }
+            });
+        })
+    </script>
+</body>
+</html>

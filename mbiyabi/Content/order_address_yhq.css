@@ -1,0 +1,328 @@
+﻿/* 
+ * CreateBy: wywar
+ * CreateTime: 2016-6-15
+ * Email: zhouweihua@biyabi.com
+ * 确认订单页面-选择地址，选择优惠方式页面样式
+ */
+
+.pull-left{float:left;}
+.pull-right{float:right;}
+.address-box{
+    cursor:pointer;
+}
+.address-box .content.unselected {
+    padding: 8% 3%;
+}
+.address-box .content.unselected span {
+    margin:6px 0 0 10px;
+}
+/* 弹出页面-地址选择，优惠方式顶部 */
+.win-address header,
+.win-yhfs header{
+    position:fixed;
+    top:0;
+    right:-100%;
+    width:100%;
+    height:49px;
+    line-height:49px;
+    background:#e72b41;
+    color:#fff;
+}
+
+.win-address header .navbar-btn,
+.win-yhfs header .navbar-btn{
+    height:49px;
+    width:49px;
+    padding:12px 10px;
+    -webkit-box-align:center;
+    -webkit-box-pack:center;
+}
+.win-address header .navbar-btn img,
+.win-yhfs header .navbar-btn img{
+    max-height:100%;
+}
+.win-address header h1,
+.win-yhfs header h1{
+    font-size:18px;
+    font-weight:400;
+    text-align:center;
+}
+
+/* 优惠方式选择 begin */
+.o-bd{width:100%;overflow-x:hidden;}
+.win-yhfs{
+    display:none;
+    position:absolute;
+    right:-100%;
+    top:0;
+    width:100%;
+    min-height:100%;
+    padding:49px 0;
+    background:#ededed;
+    z-index:10000;
+}
+.win-yhfs input{
+    -webkit-appearance:none;
+}
+.win-yhfs input[type=radio]{
+    display:none;
+    visibility:hidden;
+    -webkit-appearance:none;
+    margin:0;
+}
+        
+.win-box{
+    margin:10px 0;
+    padding:10px 0;
+    background:#fff;
+}
+.open-popup {
+    cursor:pointer;
+}
+.win-box .title{
+    padding:0 10px 10px;
+}
+.win-box .hasicon-box{
+    height:20px;
+}
+.win-yhfs .text-red {
+    color:#e72b41;
+}
+.win-box .hasicon-box img{
+    margin:0 4px 0 10px;
+    vertical-align:middle;
+}
+        
+.win-box ul li{
+    padding:10px 0;
+    color:#767676;
+    border-top:1px solid #d6d6d6;
+}
+.win-yhfs .has-yhq-radio label{
+    display:block;
+    margin-left:10px;
+}
+.win-yhfs .has-yhq-radio label:after{
+    content:" ";
+    display:block;
+    height:0;
+    clear:both;
+}
+.win-yhfs .has-yhq-radio span{
+    float:left;
+    /*margin:2px 0 0 0;*/
+}
+.win-yhfs .icon-radio {
+    display: inline-block;
+    float:left;
+    width: 1.8rem;
+    height: 1.8rem;
+    margin: 0 .5rem 0 0;
+    border-radius: 50%;
+    border: 1px solid #999;
+}
+.win-yhfs .icon-radio.checked {
+    background: url(../images/icon_radio_checked.png) no-repeat;
+    background-size: cover;
+    border: 0 none;
+}
+
+.win-box ul li:last-child{
+    padding-bottom:0;
+}
+        
+/* 输入优惠码弹窗 */
+.win-yhfs .win-mask{
+    display:none;
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;height:100%;
+    background:#000;opacity:0.6;
+    z-index:9;
+}
+.win-yhfs .popup-input
+{
+    display:none;
+    position:absolute;
+    width:90%;
+    left:5%;
+    top:50%;
+    border-radius:3px;
+    -webkit-transform:translate(0,-50%);
+    -moz-transform:translate(0,-50%);
+    -o-transform:translate(0,-50%);
+    transform:translate(0,-50%);
+    z-index:10;
+}
+.win-yhfs .popup-input h1
+{
+    padding:5px 10px 13px 25px;
+    font-size:18px;
+    font-weight:400;
+}
+.win-yhfs .popup-input input
+{
+    width:98%;
+    margin:0 1%;
+    padding:0 0 6px;
+    -webkit-appearance:none;
+    font-size:18px;
+    border:none;
+    border-bottom:2px solid #10906f;
+    outline:none;
+}
+.win-yhfs .popup-input .popup-bottom
+{
+    padding:24px 24px 10px;
+    text-align:right;
+    font-size:16px;
+}
+.win-yhfs .popup-input .popup-bottom a
+{
+    padding:12px;
+    margin-left:2rem;
+    color:#10906f;
+}
+.win-yhfs .footer{
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:49px;
+}
+.win-yhfs .footer a{
+    width:100%;
+    height:49px;
+    background:#e72b41;
+    color:#fff;
+}
+/* 优惠方式选择 end */
+
+        
+/* 选择地址页面样式 */        
+.win-address{
+    display:none;
+    position:absolute;
+    top:0;
+    right:-100%;
+    width:100%;
+    min-height:100%;
+    padding-top:49px;
+    background:#f5f5f5;
+    z-index:10000;
+}
+.win-address .no-address{
+    position:absolute;
+    top:49px;
+    width:100%;
+    height:100%;
+    background:#fff;
+}
+.win-address .no-address-content{
+    position:absolute;
+    width:80%;
+    left:10%;
+    top:25%;
+    text-align:center;
+}
+.win-address .no-address-content img{
+    width:30%;
+}
+.win-address .no-address-content p{
+    margin:10px 0;
+    font-size:16px;
+}
+.win-address .no-address-content p:nth-of-type(2){
+    margin-top:30px;
+}
+.win-address .no-address-content .btn-red{
+    display:inline-block;
+    padding:5px 10px;
+    background:#e72b41;
+    color:#fff;
+    border-radius:5px;
+}
+.win-address input{
+    -webkit-appearance:none;
+    margin:0;
+}
+.win-address header{
+    background:#fff;
+    color:#000;
+    border-bottom:1px solid #ddd;
+}
+.win-address header .navbar-btn-right{
+    padding:0 10px;
+    color:#333;
+}
+.addr-list li{
+    margin:10px 0 0 0;
+    background:#fff;
+            
+}
+.addr-list li:first-child{
+    margin:0;
+}
+.addr-list .info-box{
+    padding:10px;
+    border-bottom:1px solid #eee;
+    cursor:pointer;
+}
+.addr-list .info-box img{
+    display:none;
+    width:22px;
+    margin-right:10px;
+}
+.addr-list .info-box.current img{
+    display:inline-block;
+}
+.addr-list .info-content p{
+    margin-bottom:2px;
+    color:#a6a8aa;
+}
+.addr-list .info-content p b{
+    margin-right:2rem;
+    color:#000;
+    font-weight:400;
+}
+.addr-list .opear-box{
+    padding:10px;
+    color:#a6a8aa;
+}
+.addr-list .opear-box .has-radio{
+    display:block;
+    cursor:pointer;
+}
+.addr-list .opear-box .has-radio:after{
+    content:' ';
+    display:block;
+    height:0;
+    clear:both;
+}
+.addr-list .opear-box .has-radio span{
+    float:left;
+}
+.addr-list .opear-box .icon-radio {
+    display: inline-block;
+    float:left;
+    width: 1.4rem;
+    height: 1.4rem;
+    margin: 0 1rem 0 0;
+    border-radius: 50%;
+    border: 1px solid #999;
+}
+.addr-list .opear-box .icon-radio.checked {
+    background: url(../images/icon_radio_checked.png) no-repeat;
+    background-size: cover;
+    border: 0 none;
+}
+.addr-list .opear-box a{
+    color:#a6a8aa;
+}
+.addr-list .opear-box .pull-right a{
+    margin-left:20px;
+}
+.addr-list .opear-box .pull-right img{
+    margin-right:3px;
+}

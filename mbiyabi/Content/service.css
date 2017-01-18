@@ -1,0 +1,66 @@
+﻿/* 
+ * CreateBy: wywar
+ * CreateTime: 2016-7-14
+ * Email: zhouweihua@biyabi.com
+ * 客服-页面样式
+ */
+
+/* 顶部导航栏 */
+body{
+    background:#f1f0f5;
+}
+a {
+    color:#000;
+}
+.navbar-box {
+    position:relative;
+    width:100%;
+    height:49px;
+}
+.navbar{
+    /*position:fixed;
+    top:0;
+    left:0;*/
+    width:100%;
+    height:49px;
+    line-height:49px;
+    background:#fff;
+    color:#222;
+    z-index:9999;
+}
+.navbar .navbar-btn{
+    height:49px;
+    width:49px;
+    padding:12px 10px;
+    -webkit-box-align:center;
+    -webkit-box-pack:center;
+}
+.navbar .navbar-btn img{
+    max-height:100%;
+}
+.navbar h1{
+    font-size:18px;
+    font-weight:400;
+    text-align:center;
+}
+.section-box li{
+    margin-bottom:10px;
+    background:#fff;
+    color:#767676;
+    border-top:1px solid #e9e9e9;
+}
+.section-box li>div{
+    padding:10px;
+}
+.section-box li>div:first-child{
+    border-bottom:1px solid #f1f0f5;
+}
+.section-box li img{
+    margin:0 4px 0;
+}
+.btn-call {
+    padding:2px 10px;
+    border:1px solid #a6a8aa;
+    border-radius:5px;
+}
+/* 客服页面 end */

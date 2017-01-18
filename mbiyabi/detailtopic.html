@@ -1,0 +1,177 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title> - 比呀比海外购</title>
+    <link rel="stylesheet" type="text/css" href="/Content/base.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/hDialog.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/goods-detail.css" />
+</head>
+<body ontouchstart>
+    <div class="down-app">
+        <a class="logo-img" href="javascript:;"></a>
+        <div>
+            <p>新用户注册立赠<span><b>200</b>元</span>优惠券</p>
+            <p>开启高品质跨境购物之旅</p>
+        </div>
+        <a class="close-download" href="javascript:;"></a>
+        <a class="download-img" href="/down">下载APP</a>
+    </div>
+    <div class="navbar-box">
+        <header class="navbar ub">
+            <a class="ub navbar-btn navbar-btn-left" href="javascript:history.back();">
+                <img class="ub" src="/images/back.png" alt="返回" />
+            </a>
+
+            <h1 class="ub-f1">商品详情</h1>
+            <a class="ub navbar-btn navbar-btn-right" href="/index.html">
+                <img class="ub" src="/images/home2.png" alt="首页" />
+            </a>
+        </header>
+    </div>
+
+    <div class="ub ub-ac ub-pc home-banner home-banner2" id="homeBanner">
+        <!--<img src="http://pic.biyabi.com/image/2016/3/6/20160306184722_8491_1038.png" />-->
+    </div>
+
+    <div class="section-box goods-info">
+        <h1 id="info-title"></h1>
+        <h1 class="price text-red"></h1>
+        <p class="source">
+            <!--<img src="http://pic.biyabi.com/country_icon/11icon.jpg" />日本亚马逊 供货
+            <span>海外直发</span>-->
+        </p>
+        <div class="info-content-box"></div>
+        <div class="recommend-man">
+            <p></p>
+        </div>
+        <div class="ub ub-ac ub-pc info-content-bottom">
+            <a href="#"><img src="/images/yinhao-left.png" alt="链接" width="12" />商品原链接</a>
+        </div>
+    </div>
+
+
+
+    <!-- 商品评论 begin -->
+    <div class="section-box comment-box">
+        <div class="ub">
+            <h1 class="ub ub-f1">商品评论</h1>
+            <a class="head-right" href="#">
+                <img src="/images/icon_edit_yellow.png" alt="发帖" height="12" />发帖
+            </a>
+        </div>
+        <ul class="comment-list">
+            <!--<li class="ub">
+                <img class="user-face" src="http://pic.biyabi.com/avatar/18413286/20160322222555_5957/18413286_large.jpg" width="25" />
+                <div class="ub ub-f1 ub-ver">
+                    <p>艺萌555</p>
+                    <p>2016/3/30 8:13:57</p>
+                    <p>@范二 有沙眼的人也可以用的</p>
+                </div>
+            </li>-->
+        </ul>
+        <div class="comment-bottom">
+            <!--<a href="/Home/InfoReviewList?iInfoID=349843">比友跟帖（8）</a>
+            <a href="/Home/InfoReviewList?iInfoID=349843">到手评价（1）</a>-->
+        </div>
+    </div>
+    <!-- 商品评论 end -->
+    <!-- 该品牌晒单 begin -->
+    <!-- 该品牌晒单 end -->
+    <!-- 推荐 begin -->
+    <div class="section-box recommend-box" id="recommend">
+        <h1>推荐</h1>
+        <ul class="recommend-list clearfix"></ul>
+    </div>
+    <!-- 推荐 end -->
+    <!--底部操作条 begin-->
+    <div class="footbar ub">
+        <div class="footbar-left ub">
+            <ul class="ub">
+                <li class="ub-f1">
+                    <!--未赞-->
+                    <a id="ClickPraise" href="javascript:;">
+                        <img id="imgClickPraise" src="/images/icon_like.png" alt="赞" />赞<label id="ClickPraiseNum">17</label>
+                    </a>
+
+                </li>
+                <li class="ub-f1">
+                    <a id="CollectInfo" href="javascript:;">
+                        <img id="imgCollectInfo" src="/images/icon_favor.png" alt="收藏" style="margin-top:3px;" /><label id="lbCollectInfo">收藏</label>
+                    </a>
+                </li>
+                <li class="ub-f1">
+                    <a href="/user/usershoppingcart">
+                        <img src="/images/icon_shopping_cart.png" alt="购物车" />购物车
+
+
+                        <i class="badge" id="cart-badge">0</i>
+
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="footbar-right ub ub-f1">
+            <a class="ub ub-ac ub-pc ub-f1 btnAddCart" id="btnAddCart" href="javascript:;">加入购物车</a>
+            <a class="ub ub-ac ub-pc ub-f1 btnAddCart" id="btnBuy" href="javascript:;">立即购买</a>
+
+        </div>
+    </div>
+    <!--底部操作条 end-->
+
+
+
+    <div class="popup-layer-mask"></div>
+    <!-- 加入购物车 begin-->
+    <input type="hidden" id="CommodityTagID" value="0" />
+    <div class="popup-layer ub ub-ver slide-down">
+        <div class="p-header">
+            <div class="ub ub-ac ub-pc p-thumbnail">
+                <img id="showImg" src="" alt="" />
+
+            </div>
+            <div class="p-header-text">
+                <p>已选<label id="msg"></label></p>
+                <p class="text-danger"><label id="selectPrice"></label></p>
+            </div>
+            <a href="javascript:;" class="btn btn-close"></a>
+        </div>
+        <div class="p-container ub-f1">
+
+            <div class="p-box box-quantity">
+                <div class="p-title">数量</div>
+                <div class="p-item quantity-control clearfix">
+                    <a class="icon icon-minus" href="javascript:;">-</a>
+                    <input type="number" id="quantity" name="quantity" value="1" readonly="readonly" />
+                    <a class="icon icon-plus" href="javascript:;">+</a>
+                </div>
+            </div>
+            <div class="p-tips">
+                <p><span>请注意！</span>以上信息（颜色、尺码表等）均由海外官网提供，仅供参考用。</p>
+            </div>
+        </div>
+        <div class="p-footer">
+            <a href="javascript:;" class="btn btn-danger" methodType="">确认</a>
+        </div>
+    </div>
+    <div class="size-mask"></div>
+    <div class="shoe-size-menu">
+        <ul>
+            <li><a href="/shoesize.html?type=childshoes">童鞋尺码对照表</a></li>
+            <li><a href="/shoesize.html?type=manshoes">男鞋尺码对照表</a></li>
+            <li><a href="/shoesize.html?type=womenshoes">女鞋尺码对照表</a></li>
+        </ul>
+    </div>
+
+    <!-- 加入购物车 end-->
+    <a href="javascript:;" class="back-up"></a>
+
+    <script type="text/javascript" src="/scripts/jquery-2.2.0.min.js"></script>
+    <script type="text/javascript" src="/scripts/jquery.cookie.js"></script>
+    <script type="text/javascript" src="/scripts/TouchSlide.1.1.goods_detail.js"></script>
+    <script type="text/javascript" src="/scripts/hDialog.js"></script>
+    <script type="text/javascript" src="/scripts/public.js"></script>
+    <script type="text/javascript" src="/scripts/detailtopic.js"></script>
+</body>
+</html>

@@ -1,0 +1,269 @@
+﻿
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video
+{
+margin: 0;
+padding: 0;
+border: 0;
+vertical-align: baseline;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+-ms-box-sizing: border-box;
+-o-box-sizing: border-box;
+box-sizing: border-box;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section
+{
+display: block;
+}
+
+a
+{
+text-decoration: none;
+color: inherit;
+}
+
+ol, ul
+{
+list-style: none;
+}
+
+button
+{
+border: 0;
+background-color: #fff;
+}
+
+blockquote, q
+{
+quotes: none;
+}
+
+blockquote:before, blockquote:after
+{
+content: "";
+content: none;
+}
+
+q:before, q:after
+{
+content: "";
+content: none;
+}
+.text-danger
+{
+    color:#e72b41;
+}
+
+table
+{
+border-collapse: collapse;
+border-spacing: 0;
+}
+
+img
+{
+vertical-align: top;
+}
+
+h1, h2, h3, h4, h5
+{
+font-size: 14px;
+}
+body{
+width:100%;
+overflow-x:hidden;
+color: #555;
+font-family:"Microsoft YaHei","Helvetica Neue",Helvetica,STHeiTi,sans-serif;
+font-size: 14px;
+line-height: 1.5;
+background-color: #f9f9f9;
+-webkit-tap-highlight-color: transparent;
+}
+.clearfix:after
+{
+display: block;
+clear: both;
+width: 0;
+height: 0;
+content: "*";
+visibility: hidden;
+}
+[class|=icon]
+{
+position: relative;
+bottom: -2px;
+-webkit-display: inline-block;
+-moz-display: inline-block;
+-ms-display: inline-block;
+-o-display: inline-block;
+display: inline-block;
+background-repeat: no-repeat;
+background-position: left top;
+background-size: 100% 100%;
+}
+i[class|=icon]
+{
+position: relative;
+bottom: 0;
+-webkit-display: inline-block;
+-moz-display: inline-block;
+-ms-display: inline-block;
+-o-display: inline-block;
+display: inline-block;
+vertical-align: middle;
+background-repeat: no-repeat;
+background-position: left top;
+background-size: 100% 100%;
+}
+input[type=text], input[type=password], input[type=number], input[type=tel], input[type=search], input[type=button], button
+{
+font-size: 14px;
+border: 0;
+outline: 0;
+}
+.help-page
+{
+top: 0;
+left: 0;
+/*padding-top: 49px;*/
+width: 100%;
+min-height: 100%;
+background-color: #f5f5f5;
+}
+.help-page .wrapper
+{
+position: relative;
+margin: auto;
+max-width: 430px;
+}
+.help-page .icon
+{
+display: inline-block;
+width: 20px;
+height: 20px;
+vertical-align: middle;
+background-size: 20px 20px;
+}
+.help-page .entry
+{
+display:block;
+position: relative;
+padding: 10px 10px 10px 20px;
+text-align: left;
+}
+.help-page .section .list-item
+{
+margin-top: -1px;
+border-top: solid 1px #d9d9d9;
+border-bottom: solid 1px #d9d9d9;
+background-color: #fff;
+}
+.help-page .section .list-item .go-select{
+position: absolute;
+top: 50%;
+right: 10px;
+margin-top: -7.5px;
+width: 15px;
+height: 15px;
+background-image: url(../images/icon_angle_right_gray.png);
+background-size: 15px 15px;
+}
+
+.help-page .f-small
+{
+font-size: .8em;
+}
+.header h4 {
+    font-size:18px;
+}
+.help-page-content-box {
+    /*position:fixed;
+    top:49px;
+    left:0;*/
+    overflow-y:scroll;
+    height:100%;
+}
+.help-page-content{
+width:100%;
+padding:10px;
+background:#f8f8f8;
+}
+.has-navbar {
+    /*padding-top:49px;*/
+}
+.help-page-content .table{
+    text-align:center;
+}
+.help-page-content .table thead {
+    background: #f3f3f3;
+}
+.help-page-content .table th,
+.help-page-content .table td{
+    padding:2px 4px;
+    border:1px solid #eee;
+    border-width:0 1px 1px 0;
+}
+.help-page-content p{
+    line-height:1.8;
+}
+.help-page-content .panel
+{   
+    padding: 0;
+    margin:10px 0;
+    border: 1px solid #eee;
+    background-color: #fff;
+    border-radius: 5px;
+}
+.help-page-content .panel h2
+{   
+    margin: 0;
+    padding: 5px 20px 5px 40px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    border-bottom: 1px solid #eee;
+    background-image: url(../images/icon_question.png);
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 25px 25px;
+}
+.help-page-content h1
+{
+    font-weight:400;
+    color:#ea5767;
+}
+.help-page-content h1.caption
+{
+    text-align:center;
+    font-weight:600;
+    color:#000;
+}
+
+.help-page-content .panel h4
+{   padding:4px 10px;
+    font-weight:400;
+    color:#000;
+}
+.help-page-content .panel p
+{
+    padding: 5px 10px;
+    font-weight: 400;
+}
+.help-page-content .liucheng-box li
+{
+    position:relative;
+    margin:0 10px 21px;
+    padding:10px;
+    text-align:center;
+    border:3px solid #dcdcdc;
+    border-radius:5px;
+}
+.help-page-content .liucheng-box li img
+{
+    position:absolute;
+    left:50%;
+    bottom:-24px;
+    width:24px;
+    -webkit-transform:translate(-50%,0);
+}

@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>关注我们</title>
+    <meta content="关注比呀比海外购" name="keywords" />
+    <meta content="比呀比，中产最信任的海外直邮高品质跨境购物平台。" name="description" />
+    <link rel="stylesheet" type="text/css" href="Content/style.css">
+    <link rel="stylesheet" type="text/css" href="Content/base.css" />
+    <style>
+        body{background:#fff;color:#575757;}
+        .w{
+            width:62.67%;
+            margin:0 auto;
+            text-align:center;
+        }
+        .w h2{margin-top:60px;font-size:13px;}
+        .w h3{margin:0 0 8px;font-size:14px;}
+        .w h4{margin:0 0 8px;}
+        .w img{width:53.19%;margin:5px auto;display: block;}
+        .w .tl{margin:0 0 16px;text-align:left;font-size:13px;}
+        .w .v{padding:5px 0;background:#f6f6f6;color:#e43a3d;border:1px solid #dbdbdb;}
+
+        @media (max-width: 320px) {
+            .w h2{margin-top:50px;font-size:16px;}
+            .w h3{margin:0 0 7px;font-size:12px;}
+            .w img{margin:13px auto;}
+            .w .tl{margin:0 0 13px;font-size:11px;}
+        }
+    </style>
+</head>
+<body ontouchstart>
+    <div class="down-app">
+        <a class="logo-img" href="javascript:;"></a>
+        <div>
+            <p>新用户注册立赠<span><b>200</b>元</span>优惠券</p>
+            <p>开启高品质跨境购物之旅</p>
+        </div>
+        <a class="close-download" href="javascript:;"></a>
+        <a class="download-img" href="/down">下载APP</a>
+    </div>
+    <div class="header-box">
+        <div class="ub uc-header header">
+            <a class="ub go-back" href="javascript:history.back();"></a>
+            <h4 class="ub-f1">关注比呀比</h4>
+            <a class="ub" href="javascript:;" data-type="0"></a>
+        </div>
+    </div>
+
+    <div class="w">
+        <h2>微信公众号</h2>
+        <img src="../images/biyabimobile/biyabi_qrcode.png" alt="比呀比微信公众号" />
+        <h4>biyabicom</h4>
+        <h3 class="tl">截图保存二维码，打开微信“扫一扫”，
+        点击“相册”选择二维码图即可。</h3>
+        <h3>微信客服服务号</h3>
+        <h3 class="v">buyerbi</h3>
+        <h3>QQ粉丝群</h3>
+        <h3 class="v">188542109/179215898</h3>
+        <h3>客服热线</h3>
+        <h3 class="v">4009010886</h3>
+    </div>
+
+    <script src="scripts/jquery-2.2.0.min.js"></script>
+    <script src="scripts/jquery.cookie.js"></script>
+    <script src="scripts/public.js"></script>
+
+    <script>
+        $(function () {
+            if (!getHasHistory()) {   //如果当前页没有历史记录
+                $(".uc-header .go-back").removeClass("go-back").attr("href", "javascript:;");
+            }
+        })
+    </script>
+</body>
+</html>

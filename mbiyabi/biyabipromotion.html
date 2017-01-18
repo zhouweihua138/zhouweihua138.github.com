@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>比呀比专享优惠券</title>
+    <meta name="description" content="比呀比是高品质跨境购物平台，是跨境电商海外代购首选平台。每天为您提供大量来自网友海淘购物经验分享，甄选高性价比的海内外跨境购物优惠信息，涵盖服饰鞋包、日用百货、食品保健、母婴用品、个护美妆、家用电器、电脑数码、运动户外等类别，并精选优质诚信的跨境电商帮您轻松完成海外代购，数十万网友踊跃参与产品点评。如果您发现了高性价比的海淘折扣信息，欢迎通过比呀比与更多网友分享跨境购物的喜悦和海淘攻略。" />
+    <meta name="keywords" content="比呀比海外购 跨境购物 跨境电商 海外直邮 海淘 代购 正品 优惠券 免邮券" />
+
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <style>
+        *
+        {
+            -moz-box-sizing: border-box;  
+            -webkit-box-sizing: border-box; 
+            -o-box-sizing: border-box; 
+            -ms-box-sizing: border-box; 
+            box-sizing: border-box; 
+        }
+        html, body, div, img, h1, h2, h3, h4, h5, h6, p, a, input, ol, ul, li, dl, dt, dd
+        {
+            padding:0;
+            margin:0;
+        }
+        html
+        {
+            font-size:62.5%;
+        }
+        body
+        {
+            font-size:2rem;
+        }
+        input[type=text],input[type=tel],input[type=date],input[type=password],input[type=number],input[type=email],
+        input[type=button], input[type=submit], input[type=reset], button {
+            -webkit-appearance:none;
+        }
+        .free-postage-stamps input
+        {
+            width:100%;
+            font-size:2rem;
+            border:1px solid #dedede;
+            -webkit-border-radius:10px;
+            border-radius:10px;
+            text-align:center;
+            outline:none;
+        }
+        .free-postage-stamps input[type=text],
+        .free-postage-stamps input[type=tel]
+        {
+            height:43px;
+        }
+        .bd
+        {
+            background:#eaefef url(images/bg_biyabipromotion.png);
+            background-size:cover;
+        }
+        .free-postage-stamps
+        {
+            position:absolute;
+            top:57%;
+            left:0;
+            width:100%;
+            padding:1rem;
+        }
+        .form-item
+        {
+            margin:1rem 0 0 0;
+        }
+        .btn-red
+        {
+            height:43px;
+            background:#f61420;
+            color:#fff;
+        }
+        /*红色文字提醒*/
+        .tips-red
+        {
+            margin:.5rem 0 0;
+            color:#f61420;
+            text-align:center;
+        }
+        /*黄色文字提醒*/
+        .tips-yellow
+        {
+            margin:.5rem 0 0;
+            color:#ffcb00;
+            text-align:center;
+        }
+    </style>
+</head>
+
+<body class="bd">
+
+    <form name="submitfm" class="free-postage-stamps">
+        <div class="form-item">
+            <input type="tel" name="txtmobile" id="txtmobile" value="" placeholder="请输入手机码" />
+
+            <p id="ctl00_P1" style="" class="tips-yellow"></p>
+        </div>
+        <div class="form-item">
+            <input type="text" id="txtpromotioncode" name="txtpromotioncode" value="" placeholder="请输入券码" />
+            <p id="ctl00_errormessage" style="" class="tips-yellow"></p>
+        </div>
+        <div class="form-item">
+            <input class="btn-red btn-submit" type="button" value="提交" />
+        </div>
+    </form>
+
+    <script src="scripts/jquery-2.2.0.min.js"></script>
+    <script src="scripts/jquery.cookie.js"></script>
+    <script src="scripts/public.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $(".btn-submit").on("click", function(){
+                getCoupon();
+            });
+        })
+
+        //提交表单
+        function getCoupon() {
+            $("#submitBtn").hide();
+            if ($("#txtmobile").val() == "") {
+                alert("请输入手机号码");
+                $("#submitBtn").show();
+                $("#txtmobile").focus();
+                return false;
+            }
+            var reg = /^0?(13[0-9]|15[012356789]|18[0123456789]|14[57]|17[012356789])[0-9]{8}$/;
+            var mobile = $("#txtmobile").val();
+            if (!reg.test(mobile)) {
+                alert("请输入正确的手机号码");
+                $("#submitBtn").show();
+                $("#txtmobile").focus();
+                return false;
+            }
+            if ($("#txtpromotioncode").val() == "") {
+                alert("请输入礼包码");
+                $("#submitBtn").show();
+                $("#txtpromotioncode").focus();
+                return false;
+            }
+            if ($("#txtpromotioncode").val().length != 6) {
+                alert("请输入正确的礼包码");
+                $("#submitBtn").show();
+                $("#txtpromotioncode").focus();
+                return false;
+            }
+            $.ajax({
+                url: ajaxUrl + "giftBagCodeExchange",   // "http://192.168.3.50:8080/webservice.asmx/giftBagCodeExchange",
+                type: "POST",
+                data: {
+                    "mobileNo": mobile,
+                    "bagCode": $("#txtpromotioncode").val()
+                },
+                success: function (data) {
+                    if (data.code == 500) {
+                        alert(data.msg);
+                    } else if(data.code == 200) {
+                        alert(data.msg);
+                        window.location.href = "/down.html";
+                    }
+                },
+                error: function (err) {
+                    alert(err.responseJSON.message);
+                }
+            })
+        }
+    </script>
+</body>
+</html>

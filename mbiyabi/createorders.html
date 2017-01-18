@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>订单支付 - 比呀比海外购</title>
+    <link rel="stylesheet" type="text/css" href="Content/base.css" />
+    <link rel="stylesheet" type="text/css" href="Content/style.css" />
+    <link rel="stylesheet" type="text/css" href="Content/hDialog.css">
+    <link rel="stylesheet" type="text/css" href="Content/order-pay.css" />
+</head>
+<body ontouchstart>
+    <div class="down-app">
+        <a class="logo-img" href="javascript:;"></a>
+        <div>
+            <p>新用户注册立赠<span><b>200</b>元</span>优惠券</p>
+            <p>开启高品质跨境购物之旅</p>
+        </div>
+        <a class="close-download" href="javascript:;"></a>
+        <a class="download-img" href="/down">下载APP</a>
+    </div>
+    <div class="navbar-box">
+        <header class="navbar ub">
+            <a class="ub navbar-btn navbar-btn-left" href="javascript:;">
+                <img class="ub" src="../images/icon_navvar_close.png" alt="返回" />
+            </a>
+            <h1 class="ub-f1">提交订单成功</h1>
+            <a class="ub navbar-btn navbar-btn-right" href="/index.html"><img class="ub" src="../images/home3.png" style="max-height: 22px; height: 22px;" /></a>
+        </header>
+    </div>
+
+    <div class="section-box tips">
+        <img class="icon-tips" src="../images/icon_tips.png" alt="提示" />订单提交成功，请您尽快付款。请在3小时内完成支付，否则订单会自动取消。
+    </div>
+
+    <div class="section-box order-info">
+        <ul></ul>
+        <p>合计：￥<label id="allOrdersPrice"></label></p>
+    </div>
+
+    <h1 class="section-box-title">选择支付方式</h1>
+    <div class="section-box pay-list-box">
+        <ul class="pay-list">
+            <li class="ub" id="alipay-item" style="display:none;">
+                <img src="../images/icon_alipay_circle.png" alt="支付宝" />
+                <div class="ub ub-f1 ub-ver">
+                    <h1>支付宝</h1>
+                    <p>推荐支付宝用户使用</p>
+                </div>
+                <div class="ub ub-pc ub-ac">
+                    <a href="javascript:void(0);" id="alipay" paytype="1">去支付</a>
+                </div>
+            </li>
+            <li class="ub">
+                <img src="../images/icon_unionpay_circle.png" alt="银联在线支付" />
+                <div class="ub ub-f1 ub-ver">
+                    <h1>银联在线支付</h1>
+                    <p>支持信用卡/储蓄卡，无需开通网银</p>
+                </div>
+                <div class="ub ub-pc ub-ac">
+                    <a href="javascript:void(0);" id="gnetepay" paytype="3">去支付</a>
+                </div>
+            </li>
+            <li class="ub" id="wxpay-item" style="display:none;">
+                <img src="../images/icon_wxpay_circle.png" alt="微信支付" />
+                <div class="ub ub-f1 ub-ver">
+                    <h1>微信支付</h1>
+                    <p>推荐安装微信5.0及以上版本的用户使用</p>
+                </div>
+                <div class="ub ub-pc ub-ac">
+                    <a href="javascript:void(0);" id="weixinPay" paytype="4">去支付</a>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+
+    <!--提示 begin-->
+    <div class="dialog-mask"></div>
+    <div class="dialog section-box">
+        <h1>提示</h1>
+        <p>该订单未完成支付，确定离开？</p>
+        <div class="dialog-bottom clearfix">
+            <div class="dialog-bottom-left pull-left">
+                <!--<a class="link-order" href="/orderdetail.html?order=">查看订单</a>-->
+            </div>
+            <div class="dialog-bottom-right pull-right">
+                <a class="link-cancle" href="javascript:;">去意已决</a>
+                <a class="link-pay" href="javascript:;">我要付款</a>
+            </div>
+        </div>
+    </div>
+    <!--提示 end-->
+    <!--隐藏域-->
+    <input type="hidden" id="orderlist" value="" />
+
+    <script type="text/javascript" src="scripts/jquery-2.2.0.min.js"></script>
+    <script type="text/javascript" src="scripts/jquery.cookie.js"></script>
+    <script type="text/javascript" src="scripts/hDialog.js"></script>
+    <script type="text/javascript" src="scripts/public.js"></script>
+    <script type="text/javascript" src="scripts/createorders.js"></script>
+</body>
+</html>

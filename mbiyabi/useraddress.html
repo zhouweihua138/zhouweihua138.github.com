@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>用户地址管理 - 比呀比海外购</title>
+    <link rel="stylesheet" href="Content/hDialog.css" />
+    <link rel="stylesheet" href="Content/style.css">
+</head>
+<body>
+    <div class="container" id="main">
+        <div class="down-app">
+            <a class="logo-img" href="javascript:;"></a>
+            <div>
+                <p>新用户注册立赠<span><b>200</b>元</span>优惠券</p>
+                <p>开启高品质跨境购物之旅</p>
+            </div>
+            <a class="close-download" href="javascript:;"></a>
+            <a class="download-img" href="/down">下载APP</a>
+        </div>
+        <div class="header-box">
+            <div class="ub uc-header header">
+                <a class="ub go-back" href="javascript:history.back();"></a>
+                <h4 class="ub-f1">地址管理</h4>
+                <a class="ub other-control" href="javascript:;" data-type="0"></a>
+                <div class="select-list" id="selectList">
+                    <div class="ub list-box">
+                        <a class="ub ub-f1" href="/index.html"><span>首页</span></a>
+                        <a class="ub ub-f1" href="/user/usershoppingcart"><span>购物车</span></a>
+                        <a class="ub ub-f1" href="/user/index"><span>我的</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="user-mask"></div>
+
+        <!--地址列表-->
+
+        <a class="add-newAddress" href="/useraddressadd.html">添加新地址</a>
+
+        <script src="/scripts/jquery-2.2.0.min.js"></script>
+        <script src="/scripts/jquery.cookie.js"></script>
+        <script src="/scripts/jsencrypt.min.js"></script>
+        <script src="/scripts/hDialog.js"></script>
+        <script src="/scripts/public.js"></script>
+        <script src="/scripts/st.js"></script>
+        <script src="/scripts/mobileaddress.js"></script>
+
+        <script>
+            $(function () {
+                if (!getHasHistory()) {   //如果当前页没有历史记录
+                    $(".uc-header .go-back").removeClass("go-back").attr("href", "javascript:;");
+                }
+                //verifyLogin();
+                var userInfo = getUserInfo();
+                if (userInfo == undefined) {
+                    localStorage.returnUrl = window.location.href;
+                    window.location.href = '/userlogin';
+                    return;
+                }
+
+                //点击选择按钮时，变色
+                $(document).on('touchstart', '.address-info .ai-edit .s1-sel', function () {
+                    var $this = $(this);
+                    var p_iAddressNumber = $(this).attr("data-type");
+                    var strPwd = getstrPwd();
+                    if (typeof (strPwd) == "undefined") {
+                        //如果两个密码都不存在且id为空,则什么都不做
+                    } else {
+                        $.ajax({
+                            type: 'post',
+                            dataType: "json",
+                            url: ajaxUrl + 'UserAddressSetDefault',
+                            data: { "p_iUserID": userInfo.iUserID, "p_strPwd": strPwd, "p_iAddressNumber": p_iAddressNumber },
+                            success: function (data) {
+                                if (data) {
+                                    $(".address-info .ai-edit .s1-sel").removeClass('on');
+                                    $this.addClass('on');
+                                }
+                            }
+                        });
+                    }
+                });
+
+                var strPwd = getstrPwd();
+                if (userInfo != undefined) {
+                    $.ajax({
+                        type: 'post',
+                        dataType: 'json',
+                        data: { "p_iUserID": userInfo.iUserID, "p_strPwd": strPwd },
+                        url: ajaxUrl + 'UserAddressListQuery',
+                        success: function (data) {
+                            var addressListHtml = '';
+                            for (var i = 0; i < data.length; i++) {
+                                addressListHtml += '<div class="address-info">';
+                                addressListHtml += '<div class="ai-content">';
+                                addressListHtml += '<p>' + data[i].strContacts + '<span>' + data[i].strMobilePhone + '</span></p>';
+                                addressListHtml += '<p>' + data[i].strProvinceName + data[i].strCityName + data[i].strDistrictName + data[i].strAddress + '</p>';
+                                addressListHtml += '</div>';
+                                addressListHtml += '<div class="ai-edit cl">';
+                                if (data[i].iIsDefault == 1) {
+                                    addressListHtml += '<span class="s1-sel on" data-type="' + data[i].iAddressNumber + '">';
+                                }
+                                else {
+                                    addressListHtml += '<span class="s1-sel" data-type="' + data[i].iAddressNumber + '">';
+                                }                                
+                                addressListHtml += '<span>设置为默认地址</span></span>';
+                                addressListHtml += '<span class="s3">';
+                                addressListHtml += '<a href="/useraddressupdate.html?address=' + data[i].iAddressNumber+'">编辑</a>';
+                                addressListHtml += '<a class="deleteUserAddress" href="javascript:;" name="' + data[i].iAddressNumber+'">删除</a>';
+                                addressListHtml += '</span></div></div>';
+                            }
+                            $(addressListHtml).insertBefore(".add-newAddress"); //把列表添加到“添加新地址”按钮前
+                        }
+                    });
+                }
+            })
+        </script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <meta content="telephone=no" name="format-detection" />
+    <title>帮助中心 - 比呀比海外购</title>
+    <link rel="stylesheet" href="Content/style.css">
+    <link rel="stylesheet" href="Content/helplist.css">
+</head>
+<body>
+    <div class="down-app">
+        <a class="logo-img" href="javascript:;"></a>
+        <div>
+            <p>新用户注册立赠<span><b>200</b>元</span>优惠券</p>
+            <p>开启高品质跨境购物之旅</p>
+        </div>
+        <a class="close-download" href="javascript:;"></a>
+        <a class="download-img" href="/down">下载APP</a>
+    </div>
+    <div class="header-box">
+        <div class="ub uc-header header">
+            <a class="ub go-back" href="javascript:history.back();"></a>
+            <h4 class="ub-f1">帮助中心</h4>
+            <a class="ub" href="javascript:;" data-type="0"></a>
+        </div>
+    </div>
+
+    <div class="help-page">
+        <ul class="content">
+            <li class="section">
+                <a class="list-item entry" href="/helpcontent.html#faq">
+                    <img src="/images/icon_help_contact.png" alt="常见问题" width="20" height="20" /> 常见问题
+                    <span class="go-select"></span>
+                </a>
+            </li>
+            <li class="section">
+                <a class="list-item entry" href="/helpcontent.html#getting-start">
+                    <img src="/images/icon_help_user.png" alt="入门指南" width="20" height="20" /> 入门指南
+                    <span class="go-select"></span>
+                </a>
+            </li>
+            <li class="section">
+                <a class="list-item entry" href="/helpcontent.html#guild">
+                    <img src="/images/icon_help_shopping_cart.png" alt="购物流程" width="20" height="20" /> 购物流程
+                    <span class="go-select"></span>
+                </a>
+            </li>
+            <li class="section">
+                <a class="list-item entry" href="/helpcontent.html#order-center">
+                    <img src="/images/icon_help_order.png" alt="订单中心" width="20" height="20" /> 订单中心
+                    <span class="go-select"></span>
+                </a>
+            </li>
+            <li class="section">
+                <a class="list-item entry" href="/helpcontent.html#payment">
+                    <img src="/images/icon_help_delivery.png" alt="付款与退款" width="20" height="20" /> 付款与退款
+                    <span class="go-select"></span>
+                </a>
+            </li>
+            <li class="section">
+                <a class="list-item entry" href="/aftersalespolicy.html">
+                    <img src="/images/icon_help_service.png" alt="比呀比售后政策" width="20" height="20" /> 比呀比售后政策
+                    <span class="go-select"></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <script src="scripts/jquery-2.2.0.min.js"></script>
+    <script src="scripts/jquery.cookie.js"></script>
+    <script src="scripts/public.js"></script>
+
+    <script>
+        $(function () {
+            if (!getHasHistory()) {   //如果当前页没有历史记录
+                $(".uc-header .go-back").removeClass("go-back").attr("href", "javascript:;");
+            }
+        })
+    </script>
+</body>
+</html>

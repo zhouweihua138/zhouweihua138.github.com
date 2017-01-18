@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>比呀比海外购移动版－海外直邮的高品质跨境购物平台</title>
+    <link rel="stylesheet" href="/Content/font-awesome.css">
+    <link rel="stylesheet" href="/Content/dropload.css" />
+    <link rel="stylesheet" href="/Content/style.css">
+</head>
+<body>
+    <div class="slideout-menu" id="menu">
+        <div class="sing-in">
+            <a href="/userlogin">登录</a><span>/</span><a href="/user/register">注册</a>
+        </div>
+        <div class="search-input">
+            <form id="frmSearch" action="/home/search" method="get">
+                <input id="keyword" type="text" class="text" name="keyword">
+                <a class="search-img" href="javascript:;"></a>
+            </form>
+        </div>
+        <ul class="menu-lists">
+            <li class="cl">
+                <a href="/">
+                    <span class="li-home"></span>
+                    <span>首页</span>
+                </a>
+            </li>
+            <li class="cl">
+                <a href="/home/foreignbuy">
+                    <span class="li-ht"></span>
+                    <span>最新</span>
+                </a>
+            </li>
+            <li class="cl">
+                <a href="/specials">
+                    <span class="li-zt"></span>
+                    <span>专场</span>
+                </a>
+            </li>
+            <li class="cl">
+                <a href="/home/showofforder">
+                    <span class="li-sd"></span>
+                    <span>晒单</span>
+                </a>
+            </li>
+            <li class="cl">
+                <a href="/user/usersign">
+                    <span class="li-qd"></span>
+                    <span>签到</span>
+                </a>
+            </li>
+            <li class="cl">
+                <a href="/home/coupon">
+                    <span class="li-lq"></span>
+                    <span>领券</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="down-app">
+        <a class="logo-img" href="javascript:;"></a>
+        <div>
+            <p>新用户注册立赠<span><b>200</b>元</span>优惠券</p>
+            <p>开启高品质跨境购物之旅</p>
+        </div>
+        <a class="close-download" href="javascript:;"></a>
+        <a class="download-img" href="/down">下载APP</a>
+    </div>
+    <div class="header-box">
+        <div class="ub header">
+            <a class="ub menu-list-btn" href="javascript:;" data-click="0"></a>
+            <h4 class="ub ub-f1">
+                <a class="ub" href="javascript:;"></a>
+                <span class="ub ub-f1 ub-ac ub-pc">比呀比</span>
+                <a class="ub user-center" href="/user/index"></a>
+            </h4>
+            <a class="ub shopping-car" href="/user/usershoppingcart"></a>
+        </div>
+    </div>
+    <div class="index-mask"></div>
+
+    <div class="container" id="main">
+        <!--用于判断用户是否登录，登录了不显示注册送新人券，没登录就显示注册送新人券-->
+        <input type="hidden" id="UserID" value="" />
+
+        <div class="home-banner" id="homeBanner">
+            <div class="hd">
+                <ul></ul>
+            </div>
+            <div class="bd">
+
+            </div>
+        </div>
+        <div class="new-product" id="new-order">
+            <div class="new-title cl">
+                <span class="pp-icon">最新订单</span>
+            </div>
+            <div class="newList">
+
+            </div>
+        </div>
+
+        <div class="new-product rm-session">
+            <div class="new-title cl">
+                <span class="pp-icon">热门专场</span>
+            </div>
+            <ul class="rm-lists"></ul>
+        </div>
+
+        <div class="new-product pp-session">
+            <div class="new-title cl">
+                <span class="pp-icon"> 品牌专场</span>
+            </div>
+            <div class="tab-content cl st">
+                <div class="content-box on" id="tabContentTwo">
+
+                </div>
+            </div>
+            <a href="/special.html" class="all-special"><img src="/images/img_all_special.gif" alt="所有专场" /></a>
+        </div>
+
+        <div class="latest-recommended cl">
+            <div class="divider">
+                <hr>
+                <div>
+                    <span>为你推荐</span>
+                </div>
+                <hr>
+            </div>
+            <div class="recommend-box bd-homeindex cl">
+                <ul class="recommend-lists cl"></ul>
+            </div>
+        </div>
+        <a href="javascript:;" class="back-up"></a>
+    </div>
+
+    <script src="/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/scripts/jquery.cookie.js"></script>
+    <script src="/scripts/jsencrypt.min.js"></script>
+    <script src="/scripts/TouchSlide.1.1.js"></script>
+    <script src="/scripts/dropload.min.js"></script>
+    <script src="/scripts/hDialog.js"></script>
+    <script src="/scripts/public.js"></script>
+    <script src="/scripts/indexdataload.js"></script>
+    <script src="/scripts/index.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            //点击搜索
+            $(document).on("touchend", ".search-img", function () {
+                var keyword = $("#keyword").val();
+                $("#frmSearch").submit();
+            });
+            //$(".search-img").click(function () {
+            //    var keyWord = $("#keyWord").val();
+            //    //if (keyWord.length == 0) {
+            //    //    hDialog.show({ type: 'alert', tipsText:  '请输入搜索关键词！', hasMask: false });
+            //    //    return false;
+            //    //}
+            //    //window.location.href = "/search.html?keyWord=" + keyWord;
+            //    $("#frmSearch").submit();
+            //});
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>订单详情 - 比呀比海外购</title>
+    <link rel="stylesheet" href="Content/base.css">
+    <link rel="stylesheet" href="Content/hDialog.css">
+    <link rel="stylesheet" href="Content/style.css">
+    <link rel="stylesheet" href="Content/order.css">
+</head>
+<body>
+    <div class="down-app">
+        <a class="logo-img" href="javascript:;"></a>
+        <div>
+            <p>新用户注册立赠<span><b>200</b>元</span>优惠券</p>
+            <p>开启高品质跨境购物之旅</p>
+        </div>
+        <a class="close-download" href="javascript:;"></a>
+        <a class="download-img" href="/down">下载APP</a>
+    </div>
+    <div class="header-box">
+        <div class="ub uc-header header">
+            <a class="ub go-back" href="javascript:history.back();"></a>
+            <h4 class="ub-f1">订单详情</h4>
+            <a class="ub btn-zixun" href="/service.html" data-type="0">咨询</a>
+        </div>
+    </div>
+    <div class="section-box address-box">
+        <div class="ub order-info">
+            <div class="ub ub-ac ub-pc">
+                <img src="../images/icon_order.png" alt="订单" width="15" />
+            </div>
+            <div class="ub-f1">
+                <p class="order-id">订单编号：<span class="pull-right"></span></p>
+                <p class="order-status"></p>
+            </div>
+        </div>
+        <div class="ub address-info" style="margin:0;">
+            <div class="ub ub-ac ub-pc">
+                <img src="../images/icon_map.png" alt="地址" width="15" />
+            </div>
+            <div class="ub-f1" id="address-info"></div>
+        </div>
+    </div>
+    <div class="section-box goods-box">
+        <p class="clearfix">
+            商品来源：<i id="strMallName"></i>
+            <span class="pull-right">
+                转运线路：
+                <i>
+                    <label id="transferLine"></label>
+                </i>
+            </span>
+        </p>
+        <ul class="goods-list">
+            <!--<li class="ub">
+                <a class="ub ub-ac ub-pc" href="/detail/321525">
+                    <img src="http://pic.biyabi.com/MainImage/57023/57023_1471955523.jpg" width="74" />
+                </a>
+                <div class="ub-f1">
+                    <a href="/detail/321525"><h4>和光堂 药用精华婴儿痱子粉 140g</h4></a>
+                    <p>默认<span class="pull-right">x<label>1</label></span></p>
+                    <p>￥<label>26.28</label></p>
+                </div>
+            </li>-->
+        </ul>
+        <ul class="fee-list">
+            <li>商品总额<span class="pull-right">￥<label id="decCommodityPrice"></label></span></li>
+            <li>本土运费<span class="pull-right">+￥<label id="decFremdnessFee"></label></span></li>
+            <li>国际邮费<span class="pull-right">￥<label id="decPurchasingFee"></label></span></li>
+            <li>预收税费<span class="pull-right">￥<label id="decTax"></label></span></li>
+            <li>使用优惠<span class="pull-right text-green">-￥<label id="decDiscounts"></label></span></li>
+            <li>订单金额：￥<label id="decTotalPrice"></label></li>
+        </ul>
+    </div>
+    <div style="height:49px;"></div>
+    <div class="footbar ub ub-ac ub-pr">
+        <!--<a href="javascript:;" class="ke-btnCancel" OrderID="20201957">取消订单</a>
+        <a href="/payorder.html?OrderID=20201957&decTotalPrice=66.29">马上付款</a>-->
+    </div>
+
+    <script src="/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/scripts/jquery.cookie.js"></script>
+    <script src="/scripts/hDialog.js"></script>
+    <script src="/scripts/public.js"></script>
+    <script src="/scripts/orderdetail.js"></script>
+</body>
+</html>

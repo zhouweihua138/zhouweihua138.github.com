@@ -1,0 +1,238 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>圣诞元旦双dàn嘉年华，疯狂大减价再度开启</title>
+    <meta content="圣诞元旦双dàn嘉年华，疯狂大减价再度开启" name="keywords" />
+    <meta content="年货提前抢！比呀比，中产最信任的海外直邮高品质跨境购物平台。" name="description" />
+
+
+    <!--分享转发开始-->
+    <script src="../scripts/jquery-2.2.0.min.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        var domain = "http://m.biyabi.com/";
+        var title = "圣诞元旦双dàn嘉年华，疯狂大减价再度开启";   //标题
+        var content = "年货提前抢！比呀比，中产最信任的海外直邮高品质跨境购物平台。";  //内容
+        var openUrl = "http://m.biyabi.com/activity/happynewyear.html";    //分享的页面地址
+        var image = "http://m.biyabi.com/images/activity/happynewyear/img_happynewyear_icon_02.jpg"; //分享的小图标
+
+
+
+        //判断不是APP里面浏览器打开才执行这个微信分享接口的方法
+        if (navigator.userAgent.indexOf("biyabiandroid") == -1 && navigator.userAgent.indexOf("biyabiios") == -1) {
+            $.ajax({
+                type: 'post',
+                dataType: 'json',
+                url: 'https://openapi.biyabi.com/webservice.asmx/GetShareConfig',
+                data: { "url": window.location.href },
+                success: function (data) {
+                    wx.config({
+                        debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                        appId: data.appId, // 必填，公众号的唯一标识
+                        timestamp: data.timestamp, // 必填，生成签名的时间戳
+                        nonceStr: data.nonceStr, // 必填，生成签名的随机串
+                        signature: data.signature,// 必填，签名，见附录1
+                        jsApiList: data.jsApiList // 必填，需要使用的JS接口列表，所有JS接口列表见附录2     ['onMenuShareTimeline','onMenuShareAppMessage','onMenuShareQQ']
+                    });
+                }
+            });
+
+
+
+            wx.ready(function () {
+                // config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
+
+                //分享到朋友圈
+                wx.onMenuShareTimeline({
+                    title: title,
+                    link: openUrl,
+                    imgUrl: image,
+                    success: function () {
+
+                    },
+                    cancel: function () {
+
+                    }
+                });
+                //分享给朋友
+                wx.onMenuShareAppMessage({
+                    title: title,
+                    desc: content,
+                    link: openUrl,
+                    imgUrl: image,
+                    type: 'link', // 分享类型,music、video或link，不填默认为link
+                    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                    success: function () {
+
+                    },
+                    cancel: function () {
+
+                    }
+                });
+                //分享到QQ
+                wx.onMenuShareQQ({
+                    title: title,
+                    desc: content,
+                    link: openUrl,
+                    imgUrl: image,
+                    success: function () {
+
+                    },
+                    cancel: function () {
+
+                    }
+                });
+
+            });
+
+        }
+        else {
+            //判断是APP里面浏览器打开才执行这个方法
+
+            /*APP里面打开分享调用的格式 */
+
+            function doShare() {
+                /**
+                分享参数说明：
+                url:分享的链接
+                image:分享的图片链接
+                title:分享的标题
+                content：分享的正文
+                */
+                window.location.href = domain + "share?url=" + openUrl + "&image=" + image + "&title=" + encodeURI(title) + "&content=" + encodeURI(content);
+                return "true";
+
+            }
+
+        }
+
+
+    </script>
+
+    <!--分享转发结束-->
+    <style>
+        * {
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -o-box-sizing: border-box;
+            -ms-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, form, fieldset, table, td, img, div, article, aside, footer, header, hgroup, main, nav, section {
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+
+        html {
+            font-size: 62.5%;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        a {
+            text-decoration: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        img {
+            border: none;
+        }
+
+        body {
+            color: #000;
+            font-size: 14px;
+            background: #d93435;
+            text-align: center;
+            font-family: PingFang-SC-Regular,Helvetica Neue,Helvetica,microsoft yahei,sans-serif;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0,0,0,0);
+            border: 0;
+        }
+
+        .fw {
+            width: 100%;
+            display: block;
+            max-width: 100%;
+        }
+        .text-gold{color:#ecc695;}
+        .rule-box{position:relative;background:url(../images/activity/happynewyear/img_happynewyear_04_01.png?__inline) repeat-y;background-size:100% auto;}
+        .rule-content{width:88.26%;margin-left:auto;margin-right:auto;padding:20px;border-radius:5px;}
+        .rule-content p{margin-top:20px;}
+    </style>
+</head>
+<body>
+    <h1 class="sr-only">圣诞元旦 双dan嘉年华</h1>
+    <h2 class="sr-only">年货提前抢</h2>
+    <h2 class="sr-only">Merry Christmas and Happy New Year</h2>
+    <ul class="sr-only">
+        <li>满600减30</li>
+        <li>满1000减60</li>
+        <li>满2000减100</li>
+    </ul>
+    <h2 class="sr-only">疯狂大减价再度开启</h2>
+    <h3 class="sr-only">活动规则</h3>
+    <ol class="sr-only">
+        <li>1、活动范围：此满减活动为比呀比海外购平台全场通用，减除的部分仅限于国际邮费；手机app端、电脑端、手机端均可使用。</li>
+        <li>2、使用范围：按照同一商城的同一订单商品总金额判断优惠力度，不能跨商城跨订单使用满减优惠。</li>
+        <li>3、订单使用：每笔订单限参与一次，且不和免邮券同时使用。不找零，不兑换现金。</li>
+        <li>4、满减对象：满减活动优惠对象为同一订单中的国际邮费。而商品单价、税费不作满减优惠。</li>
+        <li>5、退款说明：活动期间，若订单取消，将退还交易中实际支付的金额，满减优惠没有参与实际交易的部分不包含在内。</li>
+        <li>本次满减优惠活动最终解释权归比呀比所有~</li>
+    </ol>
+
+    <img class="fw" src="../images/activity/happynewyear/img_happynewyear_01_01.jpg" />
+    <div style="padding-bottom:15px;background:#e9e6ed;">
+        <div style="text-align:left;">
+            <div style="width:50%;float:left;">
+                <img src="../images/activity/happynewyear/img_happynewyear_02_01.png?__inline" style="width:80%;margin-left:14.66%;" />
+            </div>
+            <div style="width:49%;float:right;">
+                <img src="../images/activity/happynewyear/img_happynewyear_02_02.png?__inline" style="width:80%;margin-left:3.73%;"  />
+            </div>
+            <i style="display:block;height:0;clear:both;"></i>
+        </div>
+        <div style="width:50%;margin:15px auto 0;position:relative;">
+            <img src="../images/activity/happynewyear/img_happynewyear_02_03.png?__inline" style="width:80%;" />
+            <img src="../images/activity/happynewyear/img_happynewyear_02_04.png?__inline" style="position:absolute;left:-40%;width:25.8%;" />
+        </div>
+    </div>
+    <img class="fw" src="../images/activity/happynewyear/img_happynewyear_03.jpg" />
+    <div style="padding-top:15px;background:#d93435;">
+        <div class="rule-box">
+            <img class="fw" src="../images/activity/happynewyear/img_happynewyear_04_00.png?__inline" />
+            <div class="text-gold rule-content">
+                <h3>活动规则</h3>
+                <div style="text-align:left;">
+                    <p>1、活动范围：此满减活动为比呀比海外购平台全场通用，减除的部分仅限于国际邮费；手机app端、电脑端、手机端均可使用。</p>
+                    <p>2、使用范围：按照同一商城的同一订单商品总金额判断优惠力度，不能跨商城跨订单使用满减优惠。</p>
+                    <p>3、订单使用：每笔订单限参与一次，且不和免邮券同时使用。不找零，不兑换现金。</p>
+                    <p>4、满减对象：满减活动优惠对象为同一订单中的国际邮费。而商品单价、税费不作满减优惠。</p>
+                    <p>5、退款说明：活动期间，若订单取消，将退还交易中实际支付的金额，满减优惠没有参与实际交易的部分不包含在内。</p>
+                </div>
+            </div>
+            <img class="fw" src="../images/activity/happynewyear/img_happynewyear_04_02.png?__inline" />
+            <img src="../images/activity/happynewyear/img_happynewyear_04.png?__inline" style="position:absolute;top:-30px;right:0;width:6.2%;" />
+        </div>
+        <p class="text-gold" style="position:relative;padding:10px 0 20px;">本次满减优惠活动最终解释权归比呀比所有~
+            <img src="../images/activity/happynewyear/img_happynewyear_04_03.png?__inline" style="position:absolute;bottom:0;left:0;width:9.9%;" />
+        </p>
+    </div>  
+</body>
+</html>

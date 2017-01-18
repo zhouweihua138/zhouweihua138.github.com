@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <!-- UC强制全屏 -->
+    <meta name="full-screen" content="yes">
+    <!-- QQ强制全屏 -->
+    <meta name="x5-fullscreen" content="true">
+    <title>订单管理 - 比呀比海外购</title>
+    <link rel="stylesheet" href="Content/style.css">
+    <link rel="stylesheet" href="Content/order.css">
+    <link rel="stylesheet" href="Content/hDialog.css">
+</head>
+<body>
+    <div class="down-app">
+        <a class="logo-img" href="javascript:;"></a>
+        <div>
+            <p>新用户注册立赠<span><b>200</b>元</span>优惠券</p>
+            <p>开启高品质跨境购物之旅</p>
+        </div>
+        <a class="close-download" href="javascript:;"></a>
+        <a class="download-img" href="/down">下载APP</a>
+    </div>
+    <div class="header-box">
+        <div class="ub uc-header header">
+            <a class="ub go-back" href="javascript:history.back();"></a>            <h4 class="ub-f1">订单</h4>
+            <a class="ub other-control" href="javascript:;" data-type="0"></a>
+            <div class="select-list" id="selectList">
+                <div class="ub list-box">
+                    <a class="ub ub-f1" href="/index.html"><span>首页</span></a>
+                    <a class="ub ub-f1" href="/user/usershoppingcart"><span>购物车</span></a>
+                    <a class="ub ub-f1" href="/user/index"><span>我的</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="user-mask"></div>
+    <div class="segmented-control uc-order">
+        <a class="control-item active" href="javascript:;">
+            全部
+        </a>
+        <a class="control-item" href="javascript:;">
+            进行中
+        </a>
+        <a class="control-item" href="javascript:;">
+            已完成
+        </a>
+        <a class="control-item" href="javascript:;">
+            待付款
+            <span id="unPayOrdersCount">0</span>
+        </a>
+        <a class="control-item" href="javascript:;">
+            已关闭
+        </a>
+    </div>
+    <div class="card order-content">
+        <!-- 全部订单 begin-->
+        <ul class="control-content order-list active"></ul>
+        <!-- 全部订单 end-->
+        <!-- 进行中订单 begin-->
+        <ul class="control-content order-list"></ul>
+        <!-- 进行中订单 end-->
+        <!-- 已完成订单 begin-->
+        <ul class="control-content order-list active"></ul>
+        <!-- 已完成订单 end-->
+        <!-- 待付款订单 begin-->
+        <ul class="control-content order-list active"></ul>
+        <!-- 待付款订单 end-->
+        <!-- 已关闭订单 begin-->
+        <ul class="control-content order-list active"></ul>
+        <!-- 已关闭订单 end-->
+    </div>
+
+    <script src="/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/scripts/jquery.cookie.js"></script>
+    <script src="/scripts/hDialog.js"></script>
+    <script src="/scripts/public.js"></script>
+    <script src="/scripts/st.js"></script>
+    <script src="/scripts/userorder.js"></script>
+</body>
+</html>

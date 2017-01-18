@@ -1,0 +1,263 @@
+﻿<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>积分兑换活动 - 比呀比海外购</title>
+    <link rel="stylesheet" href="../Content/activity1.css">
+    <style>
+        .center-box .badge {
+            padding: 0 0.2rem;
+            background: #EC6A6C;
+            color: #fff;
+            border-radius: 0.2rem;
+        }
+
+            .center-box .badge img {
+                width: 8px;
+            }
+
+            .center-box .badge i {
+                padding: 0 0 0 2px;
+                font-size: 1rem;
+                font-style: normal;
+                font-weight: 400;
+            }
+
+        @media screen and (max-width: 320px) {
+            .user-login .myq-dh {
+                top: 36%;
+            }
+
+            .user-info .div2 > div p {
+                width: 100%;
+            }
+
+            .user-info .div2 .left-integral {
+                margin-right: 10px;
+                width: 100%;
+            }
+
+            .user-info .div2 .right-gold {
+                width: 100%;
+            }
+
+            .user-info .div2 .right-gold {
+                float: left;
+            }
+
+            .how-get {
+                margin-top: -10px;
+            }
+
+            .dh-btn {
+                bottom: -38px;
+            }
+
+            .active-content > div {
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="active-container cl">
+        <img src="../images/shenquanbig-bg.png">
+        <div class="active-header cl">
+            <img src="../images/big-ball2.png" class="text-img">
+            <div class="user-info cl">
+                <img src="../images/thumb6.png" class="thumb-img">
+                <div class="div1">
+
+                    <div class="center-box cl">
+                        <span id="strNickname"></span>
+
+                        <span class="badge">
+                            <img src="../images/vip-icon.png" class="vip-img"><i id="badge">0</i>
+                        </span>
+                    </div>
+                </div>
+                <div class="div2 cl">
+                    <div class="left-integral">
+                        <p>我的积分<i id="iUserScore"></i></p>
+                        <!--<p>99</p>-->
+                    </div>
+                    <div class="right-gold">
+                        <p>我的金币<i id="iUserGold"></i></p>
+                        <!--<p>500</p>-->
+                    </div>
+                </div>
+            </div>
+            <div class="myq-dh cl">
+                <div class="myq-item1">
+                    <a href="http://quan.biyabi.com/detail/606">
+                        <img src="../images/onehundred_20170106163201.png">
+                    </a>
+                </div>
+                <div class="myq-item1">
+                    <a href="http://quan.biyabi.com/detail/605">
+                        <img src="../images/sixty.png">
+                    </a>
+                </div>
+                <div class="myq-item2">
+                    <!--<a href="http://quan.biyabi.com/detail/576">
+                        <img src="../images/five-myq.png">
+                    </a>-->
+                    <a href="http://quan.biyabi.com/detail/603">
+                        <img src="../images/ten-myq.jpg">
+                    </a>
+                    <a href="http://quan.biyabi.com/detail/604">
+
+                        <img src="../images/twenty.jpg">
+                    </a>
+                </div>
+                <div class="how-get">
+                    <a href="/integral-rule-new.html" target="_blank">
+                        <div class="center-box">
+                            <img src="../images/how.png" class="how-img">
+                            <span class="how-span">如何获取积分/金币</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+
+            <a class="dh-btn cl" href="http://quan.biyabi.com">
+                <img src="../images/dh-btn.png">
+            </a>
+
+        </div>
+        <div class="active-content cl">
+            <div class="rule-content cl">
+                <p class="use-rule">使用规则</p>
+                <div class="text-box cl">
+                    <span>1.</span>
+                    <p class="p3">
+                        使用范围：此券为比呀比海淘直购平台全场通用券，仅限于抵扣国际邮费；
+                        手机app端、电脑端、手机端均可使用。
+                    </p>
+                </div>
+                <div class="text-box cl">
+                    <span>2.</span>
+                    <p class="p4">订单使用：每笔订单限用1张免邮券。不挂失，不合并，不找零，不兑换现金。</p>
+                </div>
+                <div class="text-box cl">
+                    <span>3.</span>
+                    <p class="p5">退款说明：活动期间，若订单取消，退还您交易中实际支付的金额，免邮券自动返还到个人账号内，还可继续使用。</p>
+                </div>
+                <div class="text-box cl">
+                    <span>4.</span>
+                    <p>特别说明：本券仅限在活动时间内使用，逾期作废。免邮券可到会员中心的“我的优惠中查看。</p>
+                </div>
+
+            </div>
+        </div>
+        <img src="../images/xq-bg.png" class="xq-bg">
+    </div>
+    <script src="../scripts/jquery-2.2.0.min.js"></script>
+    <script src="../scripts/jquery.cookie.js"></script>
+    <script src="../scripts/public.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            var userInfo = getUserInfo();
+            if (userInfo != undefined) {
+                //用户已登录状态的显示
+                //if (typeof (userInfo) != "undefined") {
+                    $(".user-info .thumb-img").attr("src", userInfo.strHeadImage);
+                    $("#strNickname").text(userInfo.strNickname);  //昵称
+                    $("#badge").text(userInfo.iUserRank);
+                    $("#iUserScore").text(userInfo.iUserScore);  //积分
+                    $("#iUserGold").text(userInfo.iUserGold);
+                    $(".dh-btn").attr("href", "http://quan.biyabi.com");
+
+                    $('.active-container').addClass('user-login');
+                    $('.active-container .active-header .text-img').prop('src', '../images/big-ball.png');
+                //}
+                //else {
+                //    //用户未登录状态的显示
+                //    $(".user-info .thumb-img").attr("src", "../images/thumb6.png");
+                //    $("#strNickname").text("未知用户");  //未登录昵称
+                //    $("#badge").text(0);
+                //    $("#iUserScore").text(0);  //积分
+                //    $("#iUserGold").text(0);
+                //    $(".dh-btn").attr("href", "/login.html");
+
+                //    $('.active-container').removeClass('user-login');
+                //    $('.active-container .active-header .text-img').prop('src', '../images/big-ball2.png');
+                //}
+            }
+            else { 
+                //var biyabiAppUser = $.cookie("BiyabiAppUser");
+                var biyabiAppUser = getCookie("BiyabiAppUser");
+                if (biyabiAppUser == undefined) {
+                    //用户未登录状态的显示
+                    $(".user-info .thumb-img").attr("src", "../images/thumb6.png");
+                    $("#strNickname").text("未知用户");  //未登录昵称
+                    $("#badge").text(0);
+                    $("#iUserScore").text(0);  //积分
+                    $("#iUserGold").text(0);
+                    $(".dh-btn").attr("href", "http://m.biyabi.com/userlogin");
+
+                    $('.active-container').removeClass('user-login');
+                    $('.active-container .active-header .text-img').prop('src', '../images/big-ball2.png');
+                    return;
+                }
+                var array = biyabiAppUser.split("&");
+                var obj = { "username": array[0].substring(array[0].indexOf("=")+1), "apppwd": array[1].substring(array[1].indexOf("=")+1) };
+                //for (var i = 0; i < array.length; i++) {
+                //    var arr2 = array[i].split("=");
+                //    obj[arr2[0]] = arr2[1];
+                //}
+                if (obj.username != undefined) {
+                    $.ajax({
+                        type: 'post',
+                        dataType: 'json',
+                        data: { "userNameOrEmail": obj.username, "password": obj.apppwd },
+                        url: ajaxUrl + 'APPVerifyLogin',
+                        async: false,
+                        success: function (data) {
+                            if (parseInt(data.appResult.iResultCode) == 0) {
+                                $(".user-info .thumb-img").attr("src", data.strHeadImage);
+                                $("#strNickname").text(data.strNickname);  //昵称
+                                $("#badge").text(data.iUserRank);
+                                $("#iUserScore").text(data.iUserScore);  //积分
+                                $("#iUserGold").text(data.iUserGold);
+                                $(".dh-btn").attr("href", "http://quan.biyabi.com");
+
+                                $('.active-container').addClass('user-login');
+                                $('.active-container .active-header .text-img').prop('src', '../images/big-ball.png');
+                            } else {
+                                //用户未登录状态的显示
+                                $(".user-info .thumb-img").attr("src", "../images/thumb6.png");
+                                $("#strNickname").text("未知用户");  //未登录昵称
+                                $("#badge").text(0);
+                                $("#iUserScore").text(0);  //积分
+                                $("#iUserGold").text(0);
+                                $(".dh-btn").attr("href", "http://m.biyabi.com/userlogin");
+
+                                $('.active-container').removeClass('user-login');
+                                $('.active-container .active-header .text-img').prop('src', '../images/big-ball2.png');
+                            }
+                        }
+                    });
+                }
+            }
+
+            function getCookie(name) {
+                var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)"); //正则匹配
+                if (arr = document.cookie.match(reg)) {
+                    return unescape(arr[2]);
+                }
+                else {
+                    return null;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

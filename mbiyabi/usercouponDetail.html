@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>优惠券详情 - 比呀比海外购</title>
+    <link rel="stylesheet" type="text/css" href="/Content/style.css">
+    <link rel="stylesheet" type="text/css" href="/Content/coupondetail.css">
+</head>
+<body>
+    <div class="down-app">
+        <a class="logo-img" href="javascript:;"></a>
+        <div>
+            <p>新用户注册立赠<span><b>200</b>元</span>优惠券</p>
+            <p>开启高品质跨境购物之旅</p>
+        </div>
+        <a class="close-download" href="javascript:;"></a>
+        <a class="download-img" href="/down">下载APP</a>
+    </div>
+    <div class="header-box">
+        <div class="ub uc-header header">
+            <a class="ub go-back" href="javascript:history.back();"></a>
+            <h4 class="ub-f1">优惠券</h4>
+            <a class="ub other-control" href="/integral-rule-new.html">积分规则</a>
+        </div>
+    </div>
+
+    <div class="yhq-item clearfix">
+        <div class="left-img">
+            <div class="yhq-detail cl">
+                <!--<div class="lbq-box cl">
+                    <span>￥</span>
+                    <span>20</span>
+                    <div class="xr-lbq">
+                        <p></p>
+                        <p>20元8月1日活动免邮券</p>
+                    </div>
+                </div>
+                <p>2016.07.26-2016.08.31</p>-->
+            </div>
+        </div>
+    </div>
+
+    <div class="section-box" id="gift-detail-box">
+
+    </div>
+
+    <div class="footbar">
+        <a class="btn-danger" href="/index.html">
+            去使用
+        </a>
+    </div>
+    <script src="/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/scripts/jquery.cookie.js"></script>
+    <script src="/scripts/public.js"></script>
+
+    <script>
+        $(function () {
+            if (!getHasHistory()) {   //如果当前页没有历史记录
+                $(".uc-header .go-back").removeClass("go-back").attr("href", "javascript:;");
+            }
+            //verifyLogin();
+            var userInfo = getUserInfo();
+            if (userInfo == undefined) {
+                localStorage.returnUrl = window.location.href;
+                window.location.href = '/userlogin';
+                return;
+            }
+            var giftID = parseInt(window.location.href.substring(window.location.href.lastIndexOf('/') + 1));
+            $.ajax({
+                type: 'post',
+                dataType: 'json',
+                data: { "giftID": giftID, "giftName": "", "giftType": 0 },
+                url: ajaxUrl + 'GetGiftDetailJson',
+                success: function (data) {
+                    data = data[0];
+                    var giftHtml = '';
+                    giftHtml += '<div class="lbq-box cl"><span>￥</span>';
+                    giftHtml += '<span>' + formatDiscountsExceptComma(data.Discounts) + '</span>';
+                    giftHtml += '<div class="xr-lbq"><p></p>';
+                    giftHtml += '<p>' + data.GiftName + '</p></div></div>';
+                    //giftHtml += '<p>' + formatDateForCoupon(data.StartTime) + '-' + formatDateForCoupon(data.EndTime) + '</p>';
+                    giftHtml += '<p>' + data.StartTime + '-' + data.EndTime + '</p>';
+                    $(".yhq-item .yhq-detail").append(giftHtml);
+
+                    var giftDetailHtml = '';
+                    giftDetailHtml += '<p>优惠额度：' + data.Discounts + '</p>';
+                    //giftDetailHtml += '<p>有效日期：' + formatDateForCoupon(data.StartTime) + '-' + formatDateForCoupon(data.EndTime) + '</p>';
+                    giftDetailHtml += '<p>有效日期：' + data.StartTime + '-' + data.EndTime + '</p>';
+                    giftDetailHtml += '<p>优惠劵数：' + data.GiftCount + '</p>';
+                    giftDetailHtml += '<h1>使用说明：</h1>';
+                    giftDetailHtml += '<p>' + data.GiftContent + '</p>';
+                    $("#gift-detail-box").append(giftDetailHtml);
+                }
+            });
+        })
+    </script>
+</body>
+</html>

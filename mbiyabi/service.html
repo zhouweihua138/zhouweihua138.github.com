@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>客服 - 比呀比海外购</title>
+    <link rel="stylesheet" type="text/css" href="Content/base.css" />
+    <link rel="stylesheet" type="text/css" href="Content/style.css" />
+    <link rel="stylesheet" type="text/css" href="Content/service.css" />
+    <link rel="stylesheet" type="text/css" href="Content/hDialog.css" />
+</head>
+<body ontouchstart>
+    <div class="down-app">
+        <a class="logo-img" href="javascript:;"></a>
+        <div>
+            <p>新用户注册立赠<span><b>200</b>元</span>优惠券</p>
+            <p>开启高品质跨境购物之旅</p>
+        </div>
+        <a class="close-download" href="javascript:;"></a>
+        <a class="download-img" href="/down">下载APP</a>
+    </div>
+    <div class="navbar-box">
+        <header class="navbar ub">
+            <a class="ub navbar-btn navbar-btn-left" href="javascript:history.back();">
+                <img class="ub" src="/images/back.png" alt="返回" />
+            </a>
+
+            <h1 class="ub-f1">比呀比</h1>
+            <a class="ub navbar-btn navbar-btn-right" href="javascript:;"></a>
+        </header>
+    </div>
+    <div class="section-box">
+        <ul>
+            <li>
+                <div class="ub">
+                    <div class="ub-f1"><img src="/images/icon_service_wechat.png" alt="客服微信" width="14" />客服微信</div>
+                    <a class="helpDic" href="javascript:;">
+                        <img src="/images/icon_service_question.png" alt="帮助说明" width="14" />帮助说明
+                    </a>
+                </div>
+                <div class="ub">
+                    比呀比公众号客服：buyerbi
+                </div>
+            </li>
+            <li>
+                <div>
+                    <img src="/images/icon_service_tel.png" alt="客服电话" width="14" />客服电话
+                </div>
+                <div class="ub">
+                    <div class="ub-f1">比呀比客服电话：4009010886</div>
+                    <a class="btn-call" href="tel:4009010886">拨打</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <script src="scripts/jquery-2.2.0.min.js"></script>
+    <script src="scripts/jquery.cookie.js"></script>
+    <script src="scripts/hDialog.js"></script>
+    <script src="scripts/public.js"></script>
+    <script>
+        $(function () {
+            if (!getHasHistory()) {   //如果当前页没有历史记录
+                $(".navbar-btn-left").html("").attr("href", "javascript:;");
+            }
+            $(".helpDic").click(function () {
+                hDialog.show({ type: 'alert', tipsText: '亲爱的用户，为给你更好的客服体验，现微信好友客服已升级至公众号客服（微信好友客服同事停用），服务更专业，更迅速！请复制公众号关注进行咨询，已关注公众号的用户可以直接进入公众号咨询哦！', hasMask: false });
+            });
+        });
+    </script>
+</body>
+</html>

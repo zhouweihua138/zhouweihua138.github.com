@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>消息 - 比呀比海外购</title>
+    <link rel="stylesheet" href="/Content/style.css">
+</head>
+<body class="snd">
+    <div class="down-app">
+        <a class="logo-img" href="javascript:;"></a>
+        <div>
+            <p>新用户注册立赠<span><b>200</b>元</span>优惠券</p>
+            <p>开启高品质跨境购物之旅</p>
+        </div>
+        <a class="close-download" href="javascript:;"></a>
+        <a class="download-img" href="/down">下载APP</a>
+    </div>
+    <div class="header-box">
+        <div class="ub uc-header header">
+            <a class="ub go-back" href="javascript:history.back();"></a>
+            <h4 class="ub-f1">消息</h4>
+            <a class="ub other-control" href="javascript:;" data-type="0"></a>
+            <div class="select-list" id="selectList">
+                <div class="ub list-box">
+                    <a class="ub ub-f1" href="/index.html"><span>首页</span></a>
+                    <a class="ub ub-f1" href="/user/usershoppingcart"><span>购物车</span></a>
+                    <a class="ub ub-f1" href="/user/index"><span>我的</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="user-mask"></div>
+
+    <div class="tab-title uc-sd-tab uc-news-tab cl" id="ke-control">
+        <ul>
+            <li><a class="on" href="javascript:;" data-click="#tabContentOne" messageType="3">晒单</a></li>
+            <li><a href="javascript:;" data-click="#tabContentTwo" messageType="2">商品</a></li>
+            <li><a href="javascript:;" data-click="#tabContentThree" messageType="1">系统消息</a></li>
+        </ul>
+    </div>
+    <div class="tab-content cl uc-news-tab">
+        <div class="content-box on" id="tabContentOne">
+
+        </div>
+        <div class="content-box" id="tabContentTwo">
+
+        </div>
+        <div class="content-box" id="tabContentThree">
+
+        </div>
+    </div>
+
+    <script src="/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/scripts/jquery.cookie.js"></script>
+    <script src="/scripts/public.js"></script>
+    <script src="/scripts/st.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            if (!getHasHistory()) {   //如果当前页没有历史记录
+                $(".uc-header .go-back").removeClass("go-back").attr("href", "javascript:;");
+            }
+            //verifyLogin();
+            var userInfo = getUserInfo();
+            if (userInfo == undefined) {
+                localStorage.returnUrl = window.location.href;
+                window.location.href = '/userlogin';
+                return;
+            }
+            //点击切换加载对应的消息
+            $("#ke-control a").click(function () {
+                var messageType = $(this).attr("messageType");
+                var id = $(this).attr("data-click");
+                $.ajax({
+                    type: 'post',
+                    dataType: 'json',
+                    data: { "pageIndex": 1, "pageSize": 10000, "userID": userInfo.iUserID, "messageType": messageType },
+                    url: ajaxUrl + 'GetMessageListHtmlJson',
+                    success: function (json) {
+                        var str = '';
+                        for (var i = 0; i < json.length; i++) {
+                            if (json[i].MessageContent != undefined) {
+                                str += '<div class="personal-news">';
+                                str += '<div class="img-div">';
+                                str += '<img src="../../images/news-icon3.png">';
+                                str += '</div>';
+                                str += '<div class="news-content">';
+                                //str += '<p>消息来了！</p>';
+                                str += '<p>' + json[i].MessageTime + '</p>';
+                                str += '<div>';
+                                str += '' + json[i].MessageContent + '';
+                                str += '</div>';
+                                str += '</div>';
+                                str += '</div>';
+                            }
+                        }
+                        $(id).html(str);
+                    }
+                });
+            });
+
+            //刚开始加载触发第一个a标签点击事件
+            $("#ke-control a").first().click();
+        })
+    </script>
+</body>
+</html>

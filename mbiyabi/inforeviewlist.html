@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>商品评论跟贴 - 比呀比海外购</title>
+    <link rel="stylesheet" type="text/css" href="Content/base.css" />
+    <link rel="stylesheet" type="text/css" href="Content/hDialog.css" />
+    <link rel="stylesheet" type="text/css" href="Content/style.css" />
+    <link rel="stylesheet" type="text/css" href="Content/goods-comment.css" />
+</head>
+<body ontouchstart>
+    <div class="tabBox">
+        <div class="down-app">
+            <a class="logo-img" href="javascript:;"></a>
+            <div>
+                <p>新用户注册立赠<span><b>200</b>元</span>优惠券</p>
+                <p>开启高品质跨境购物之旅</p>
+            </div>
+            <a class="close-download" href="javascript:;"></a>
+            <a class="download-img" href="/down">下载APP</a>
+        </div>
+        <div class="navbar-box">
+            <div class="navbar ub">
+                <a class="ub navbar-btn navbar-btn-left" href="javascript:history.back();">
+                    <img class="ub" src="../images/icon_angle_left3.png" alt="返回" />
+                </a>
+
+                <div class="hd ub ub-f1">
+                    <ul>
+                        <li class="on"><a href="javascript:;">比友跟贴</a></li>
+                        <li><a href="javascript:;">到手评价</a></li>
+                    </ul>
+                </div>
+                <a class="ub navbar-btn navbar-btn-right" href="http://m.biyabi.com"></a>
+            </div>
+        </div>
+        <input type="hidden" id="iInfoID" value="" />
+        <div class="bd">
+            <!-- 比友跟贴 begin -->
+            <div class="section-box on">
+                <div class="no-comment" style="display:none;">
+                    <img src="../images/icon_reply_big.png" alt="跟贴" />
+                    <h1>暂无跟贴</h1>
+                    <p>快来抢沙发吧~</p>
+                </div>
+                <ul class="comment-list" id="gentie-list">
+                    <!--<li class="ub" ReviewID="237862">
+                        <img class="user-face" src="http://pic.biyabi.com/default_avatar/default_avatar_15_large.jpg" width="25" />
+                        <div class="ub ub-f1 ub-ver">
+                            <p>
+                                <span class="user-name">水中鱼521</span>
+                                <span class="pull-right">08-06 10:55</span>
+                            </p>
+                            <p>到手了  虽然时间很久 使用泡沫很丰富</p>
+                        </div>
+                        <div class="context-menu">
+                            <a class="btnAt" href="javascript:;">@TA</a>|
+                            <a class="btnReply" href="javascript:;">回复</a>
+                            <i class="icon-triangle-down"><i></i></i>
+                        </div>
+                    </li>-->
+                </ul>
+            </div>
+            <!-- 比友跟贴 end -->
+            <!-- 到手评价 begin -->
+            <div class="section-box">
+                <div class="no-comment" style="display:none;">
+                    <img src="../images/icon_reply_big.png" alt="评价" />
+                    <h1>暂无评价</h1>
+                </div>
+                <ul class="comment-list" id="daoshou-list">
+                    <!--<li class="ub">
+                        <img class="user-face" src="http://pic.biyabi.com/default_avatar/default_avatar_24_large.jpg" width="25" />
+                        <div class="ub ub-f1 ub-ver">
+                            <p>
+                                <span class="user-name">Chrisyguo</span>
+                                <span class="pull-right">07-12 02:46</span>
+                            </p>
+                            <p>一瓶能用很久，很温和</p>
+                        </div>
+                    </li>-->
+                </ul>
+            </div>
+            <!-- 到手评价 end -->
+        </div>
+    </div>
+    <div class="bottom-padding" style="height:49px;"></div>
+    <!--底部操作条 begin-->
+    <div class="footbar clearfix" id="footbar">
+        <div class="pull-left">
+            <input type="text" id="content" name="content" value="" placeholder="跟贴内容至少三个字哦" />
+        </div>
+        <input class="pull-right btn-publish" type="button" id="btnPublish" name="btnPublish" value="发表" />
+    </div>
+    <!--底部操作条 end-->
+
+    <script type="text/javascript" src="scripts/jquery-2.2.0.min.js"></script>
+    <script type="text/javascript" src="scripts/jquery.cookie.js"></script>
+    <script type="text/javascript" src="scripts/hDialog.js"></script>
+    <script type="text/javascript" src="scripts/public.js"></script>
+    <script type="text/javascript" src="scripts/Inforeviewlist.js"></script>
+</body>
+</html>

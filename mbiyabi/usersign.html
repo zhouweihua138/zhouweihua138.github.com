@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>签到 - 比呀比海外购</title>
+    <link rel="stylesheet" href="/Content/style.css">
+    <link rel="stylesheet" href="/Content/hDialog.css">
+</head>
+<body>
+    <div class="down-app">
+        <a class="logo-img" href="javascript:;"></a>
+        <div>
+            <p>新用户注册立赠<span><b>200</b>元</span>优惠券</p>
+            <p>开启高品质跨境购物之旅</p>
+        </div>
+        <a class="close-download" href="javascript:;"></a>
+        <a class="download-img" href="/down">下载APP</a>
+    </div>
+    <div class="header-box">
+        <div class="ub uc-header header">
+            <a class="ub go-back" href="javascript:history.back();"></a>
+            <h4 class="ub-f1">签到</h4>
+            <a class="ub other-control" href="javascript:;" data-type="0"></a>
+            <div class="select-list" id="selectList">
+                <div class="ub list-box">
+                    <a class="ub ub-f1" href="/index.html"><span>首页</span></a>
+                    <a class="ub ub-f1" href="/user/usershoppingcart"><span>购物车</span></a>
+                    <a class="ub ub-f1" href="/user/index"><span>我的</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="user-mask"></div>
+
+    <div class="uc-signIn">
+        <div class="signIn-btn">
+            <div id="doCheck">请签到</div>
+        </div>
+        <span class="my-integral">我的积分<i id="myScore"></i></span>
+        <a href="/integral-rule-new.html" class="get-integral">怎么赚取？</a>
+        <a href="#" class="integral-detail">连续签到<label id="sign"></label>天</a>
+    </div>
+    <div class="exchange-yhq">
+        <p>兑换优惠券</p>
+
+        <!--<div class="ub yhq-item cl">
+            <div class="ub left-img">
+                <div class="yhq-detail cl">
+                    <div class="lbq-box cl">
+                        <span>￥</span>
+                        <span>100</span>
+
+                        <p>100元免邮券</p>
+
+
+                    </div>
+                    <p>2016.07.29-2016.08.31</p>
+                </div>
+            </div>
+            <div class="ub ub-f1 ub-ac ub-pc right-img">
+                <a href="/coupon/485" class="exchange-btn">兑换</a>
+            </div>
+        </div>-->
+    </div>
+
+    <script src="/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/scripts/jquery.cookie.js"></script>
+    <script src="/scripts/TouchSlide.1.1.js"></script>
+    <script src="/scripts/hDialog.js"></script>
+    <script src="/scripts/public.js"></script>
+    <script src="/scripts/st.js"></script>
+    <script>
+        TouchSlide({
+            slideCell: 'ad-banner',
+            titCell: ".hd ul",
+            mainCell: ".bd ul",
+            autoPage: "true",
+            autoPlay: "true",
+            effect: "leftLoop",
+            delayTime: 500,
+            interTime: 4000
+        });
+        setTimeout(function () {
+            $('#ad-banner .hd ul li').each(function () {
+                $(this).html('');
+            });
+        }, 100);
+        
+        var userInfo = getUserInfo();  //获取用户信息
+        if (userInfo == undefined) {
+            localStorage.returnUrl = window.location.href;
+            window.location.href = '/userlogin';
+        }
+
+        $(function () {
+            if (!getHasHistory()) {   //如果当前页没有历史记录
+                $(".uc-header .go-back").removeClass("go-back").attr("href", "javascript:;");
+            }
+            //verifyLogin();  //登录验证
+
+            //初始化界面元素
+            if (userInfo != undefined) {
+                var signStatusText = "请签到";
+                var date = new Date();
+                var month = date.getMonth() + 1;
+                if (month < 10) {
+                    month = "0" + month;
+                }
+                var day = date.getDate();
+                if (day < 10) {
+                    day = "0" + day;
+                }
+                var today = date.getFullYear() + "-" + month + "-" + day + " 00:00:00";  //拼接成接口返回相同格式
+                if (userInfo.dtCheckInDate == today) {
+                    signStatusText = "已签到";
+                }
+                $("#doCheck").text(signStatusText);
+                $("#myScore").text(userInfo.iUserScore);
+
+                //连续签到天数显示
+                var dtCheckInDate = userInfo.dtCheckInDate.substring(0, userInfo.dtCheckInDate.lastIndexOf("T"));
+                var today2 = date.getFullYear() + "-" + month + "-" + date.getDate();
+                if (daysBetween(today2, dtCheckInDate) >= 2) {
+                    $("#sign").text("0");
+                } else {
+                    $("#sign").text(userInfo.iCheckInCount);
+                }
+            }
+
+            //点击签到
+            $(".signIn-btn").click(function () {
+                $.ajax({
+                    type: 'post',
+                    dataType: 'json',
+                    data: { "userID": userInfo.iUserID, "userName": userInfo.strUserName },
+                    url: ajaxUrl+'CheckInJsonV2',
+                    success: function (json) {
+                        //{"code" :100,"message" :"已签到","result": {"user": {}}}
+                        //{"code" :200,"message" :"success","result": {"user": {"CheckInCount" :1,"UserScore" :78,"UserExperience" :232,"AddScore" :5}}}
+                        if (json.code == 200) {
+                            //var signDayCount = parseInt($("#sign").text());
+                            $("#sign").text(json.result.user.CheckInCount);
+                            $("#doCheck").text("已签到");
+                            $("#myScore").text(parseInt($("#myScore").text()) + json.result.user.UserScore);
+                            hDialog.show({ type: 'toast', toastText: '签到成功！加' + json.result.user.AddScore + '积分', toastTime: 2000, hasMask: false });
+                        }
+                        else {
+                            //alert(json.message);
+                            hDialog.show({ type: 'toast', toastText: json.message, toastTime: 2000, hasMask: false });
+                        }
+                    }
+                });
+            });
+
+            //加载优惠券列表
+            $.ajax({
+                type: 'post',
+                dataType: 'json',
+                data: { "pageIndex": 1, "pageSize": 1000, "giftType": 8, "mallLetter": "", "mallNation": 0, "mallUrl": "" },
+                url: ajaxUrl + 'GetGiftListQueryJson',
+                success: function (data) {
+                    var yhqListHtml = '';
+                    for (var i = 0; i < data.length; i++) {
+                        yhqListHtml += '<div class="ub yhq-item cl">';
+                        yhqListHtml += '<div class="ub left-img">';
+                        yhqListHtml += '<div class="yhq-detail cl">';
+                        yhqListHtml += '<div class="lbq-box cl">';
+                        yhqListHtml += '<span>￥</span>';
+                        yhqListHtml += '<span>' + formatDiscountsExceptComma(data[i].Discounts) + '</span>';
+                        yhqListHtml += '<p>' + data[i].GiftName + '</p></div>';
+                        //yhqListHtml += '<p>' + formatDateForCoupon(data[i].StartTime) + '-' + formatDateForCoupon(data[i].EndTime) + '</p></div></div>';
+                        yhqListHtml += '<p>' + data[i].StartTime + '-' + data[i].EndTime + '</p></div></div>';
+                        
+                        yhqListHtml += '<div class="ub ub-f1 ub-ac ub-pc right-img">';
+                        yhqListHtml += '<a href="/coupon/' + data[i].GiftID + '" class="exchange-btn">兑换</a>';
+                        yhqListHtml += '</div></div>';
+                    }
+                    $(".exchange-yhq").append(yhqListHtml);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

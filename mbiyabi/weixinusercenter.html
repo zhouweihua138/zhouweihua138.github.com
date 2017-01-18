@@ -1,0 +1,376 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>个人中心 - 比呀比海外购</title>
+    <link rel="stylesheet" href="Content/wechatbase.css">
+    <link rel="stylesheet" href="Content/style.css">
+    <link rel="stylesheet" href="Content/wechat-user.css">
+</head>
+<body ontouchstart>
+    <div class="down-app">
+        <a class="logo-img" href="javascript:;"></a>
+        <div>
+            <p>新用户注册立赠<span><b>200</b>元</span>优惠券</p>
+            <p>开启高品质跨境购物之旅</p>
+        </div>
+        <a class="close-download" href="javascript:;"></a>
+        <a class="download-img" href="/down">下载APP</a>
+    </div>
+    <div class="user-info">
+        <div class="face-box">
+            <a class="ub ub-ac ub-pc" href="javascript:;">
+                <img class="ub face" src="../images/icon_wechat_user.png" alt="用户头像" />
+            </a>
+        </div>
+        <!-- 已绑定 begin-->
+        <h4 id="strNickname"></h4>
+        <a class="btn-unbind" style="display:none;" href="javascript:;">解除绑定</a>
+        <a class="btn-bind" style="display:none;" href="javascript:;">绑定比呀比账号</a>
+        <ul class="ub row">
+            <li class="ub ub-f1 ub-ver ub-pc ub-ac">
+                <span class="ub">等级</span>
+                <span class="ub text-muted" id="iUserRank">Lv.0</span>
+            </li>
+            <li class="ub ub-f1 ub-ver ub-pc ub-ac">
+                <span class="ub">积分</span>
+                <span class="ub text-muted" id="iUserScore">0</span>
+            </li>
+            <li class="ub ub-f1 ub-ver ub-pc ub-ac">
+                <span class="ub">金币</span>
+                <span class="ub text-muted" id="iUserGold">0</span>
+            </li>
+        </ul>
+        <!-- 已绑定 end-->
+
+
+    </div>
+    <ul class="nav-list">
+        <li>
+            <a class="ub list-item" id="aOrder" href="#" UserID="18453936">
+                <div class="ub-f1">
+                    <span class="icon-box">
+                        <img class="icon" src="../images/icon_wechat_order.png" alt="我的订单" width="14" />
+                    </span>
+                    我的订单
+                </div>
+                <img src="../images/icon_wechat_angle_right.png" alt="进入" height="14" />
+            </a>
+        </li>
+        <li>
+            <a class="ub list-item" id="aCoupon" href="/usercoupon.html" UserID="18453936">
+                <div class="ub-f1">
+                    <span class="icon-box">
+                        <img class="icon" src="../images/icon_wechat_coupon.png" alt="我的优惠券" width="14" />
+                    </span>
+                    我的优惠券
+                </div>
+                <img src="../images/icon_wechat_angle_right.png" alt="进入" height="14" />
+            </a>
+
+        </li>
+    </ul>
+
+    <div class="alert-mask"></div>
+    <div class="alert-dialog">
+        <h6 class="alert-caption">绑定手机号</h6>
+        <div class="frm-box">
+            <div class="ub form-item mobile-box mobile-box1">
+                <input class="ub ub-f1 mobile" type="tel" name="tel" value="" maxlength="11" placeholder="请输入手机号码" />
+                <button class="btn-danger btn-valid">验证</button>
+            </div>
+            <div class="form-item validcode-box">
+                <div class="ub">
+                    <input class="ub ub-f1 validcode" maxlength="8" type="text" name="validcode" value="" placeholder="请输入图片验证码" />
+                    <img id="phoneImage" class="validcode-img" src="" alt="" height="30" />
+                </div>
+            </div>
+            <button class="ub btn-danger btn-send">确认</button>
+            <div class="ub form-item mobilecode-box">
+                <input class="ub ub-f1 mobilecode" maxlength="8" type="text" name="mobilecode" value="" placeholder="请输入短信验证码" />
+            </div>
+            <button class="ub btn-danger btn-submit">绑定</button>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="/scripts/jquery-2.2.0.min.js"></script>
+    <script type="text/javascript" src="/scripts/jquery.cookie.js"></script>
+    <script type="text/javascript" src="/scripts/jsencrypt.min.js"></script>
+    <script type="text/javascript" src="/scripts/public.js"></script>
+    <script>
+        $(function () {
+            var userInfo = getUserInfo();
+
+            //设置显示信息
+            if (userInfo != undefined) {
+                //如果能拿到用户信息
+                $(".face-box .face").attr("src", userInfo.strHeadImage);
+                $("#strNickname").text(userInfo.strNickname);
+                $(".btn-unbind").show();
+                $("#iUserRank").text("Lv." + userInfo.iUserRank);
+                $("#iUserScore").text(userInfo.iUserScore);
+                $("#iUserGold").text(userInfo.iUserGold);
+                $("#aOrder").attr("href", "/user/userorder");
+                $("#aCoupon").attr("href", "/usercoupon.html");
+            } else {
+                $(".face-box .face").attr("src", "../images/icon_wechat_user.png");
+                $("#strNickname").text("未知用户");
+                $(".btn-bind").show();
+                $("#iUserRank").text("Lv.0");
+                $("#iUserRank").text(0);
+                $("#iUserRank").text(0);
+                $("#aOrder,#aCoupon").attr("href", "#");
+            }
+
+
+            //绑定比呀比账号
+            $(document).on("click", ".btn-bind", function () {
+                $(".alert-mask,.alert-dialog").stop().css({ "opacity": "1" }).show();
+                $(".alert-mask").css({ "opacity": "0.5" }).show();
+            });
+
+            //点击遮罩层
+            $(document).on("touchstart", ".alert-mask", function () {
+                $(".alert-mask,.alert-dialog").fadeOut(500);
+            });
+
+            //输入手机号
+            $(document).on("input change blur", ".mobile", function () {
+                //值不为空且格式正确
+                if ($(this).val() != "" && /^1[\d]{10}$/.test($(this).val())) {
+                    $(".btn-valid").addClass("btn-danger");
+                } else {
+                    $(".btn-valid").removeClass("btn-danger");
+                }
+            });
+
+            //点击验证按钮
+            $(document).on("touchstart", ".btn-valid", function () {
+                if ($(this).hasClass("btn-danger")) {
+                    var mobile = $(".mobile").val();
+                    var validcode = $(".validcode").val();
+                    if (mobile == "") {
+                        alert("请输入手机号");
+                        return;
+                    } else if (!/^1[\d]{10}$/.test(mobile)) {
+                        alert("请输入正确的手机号");
+                        return;
+                    }
+                    else {
+                        //发送同步请求获取手机验证码
+                        $("#phoneImage").attr("src", ajaxUrl + 'GetPhoneValidCodeForH5?MobilePhone=' + mobile + '&n=' + Math.random(1, 10000));
+                        //显示验证码输入框
+                        $(".btn-valid").removeClass("btn-danger");
+                        $(".mobile-box").removeClass("mobile-box1");
+                        $(".validcode").val("");
+                        $(".validcode-box,.btn-send").slideDown(300);
+
+                        //$.ajax({
+                        //    type: 'post',
+                        //    dataType: 'json',
+                        //    data: { "MobilePhone": mobile },
+                        //    url: ajaxUrl + 'GetPhoneValidCodeForH5',
+                        //    asnyc: false,
+                        //    success: function (data) {
+                        //        //{"iResultCode":0,"strResultDescription":"验证码发送成功","strPhoneValidUrl":"http://pic.biyabi.com/validcode_image/2016/7/9/20160709104503_2289_5041.jpg"}
+                        //        if (data.iResultCode == 0) {
+                        //            $("#phoneImage").attr("src", data.strPhoneValidUrl);
+
+                        //            //显示验证码输入框
+                        //            $(".btn-valid").removeClass("btn-danger");
+                        //            $(".mobile-box").removeClass("mobile-box1");
+                        //            $(".validcode").val("");
+                        //            $(".validcode-box,.btn-send").slideDown(300);
+                        //        }
+                        //        else {
+                        //            alert("网络错误，请稍后再试！");
+                        //        }
+
+                        //    }
+                        //});
+
+
+
+                    }
+                    $(".mobilecode-box,.btn-submit").hide();
+                }
+            });
+
+            //点击验证码图片
+            $(document).on("touchstart", ".validcode-img", function () {
+                getValidImage($(".mobile").val());
+            });
+
+            //点击确认，发送短信
+            $(document).on("touchstart", ".btn-send", function () {
+                $(".mobilecode").val("");
+                var validcode = $(".validcode").val();
+                if (validcode == "") {
+                    alert("请输入验证码");
+                    return;
+                } else if (validcode.length < 4) {
+                    alert("验证码格式错误");
+                    return;
+                } else {
+                    var mobile = $(".mobile").val();
+
+                    //RSA加密
+                    //Encrypt with the public key...
+                    var timestamp = Math.round(new Date().getTime() / 1000)  //Unix时间戳(Unix timestamp)
+                    var validStr = mobile + "|" + validcode + "|" + timestamp;
+                    var encrypt = new JSEncrypt();
+                    var pubkey = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDhQg6PquOyX15BywcKQuo1MjihrPEkHw57JbH1PNAFWaMUKgmk8rnb6RQNY4OlyuULBnHEZIbNSJd1sA+FPDZ8n50wvgaZ+ITZG/jhp7lvmFNbt5R69mD3i4GA9BlM2VDeqdrGDw/o+mnD3MxdAFALCmSSTo6W7ohYN5M3ltL4WQIDAQAB";
+                    encrypt.setPublicKey(pubkey);
+                    var encrypted = encrypt.encrypt(validStr);
+                    validcode = encrypted;
+
+                    //验证码输入是否有效
+                    $.ajax({
+                        type: 'post',
+                        dataType: 'json',
+                        data: { "validCode": validcode, "captchaType": 2 },
+                        url: ajaxUrl + 'ValidPhoneCode',
+                        success: function (data) {
+                            if (data.iResultCode == 0) {
+                                //hDialog.show({ type: 'toast', toastText: '短信发送成功！', toastTime: 3000, toastBottom: '58%', hasMask: false });
+                                alert("短信发送成功！");
+
+                                $(".validcode-box,.btn-send").hide();
+                                //倒数六十秒
+                                countDown = 61;
+                                fnCountdown();
+                                $(".mobilecode-box,.btn-submit").slideDown(300);  //手机短信输入框，弹出绑定按钮
+                                //倒数六十秒
+                                i = 61;
+                                fnCountdown();
+                            }
+                            else {
+                                // hDialog.show({ type: 'toast', toastText: '验证码不正确！', toastTime: 3000, toastBottom: '58%', hasMask: false });
+                                alert("验证码不正确！");
+                                //getValidImage($(".textvalidcode").val());
+                                getValidImage($(".mobile").val());
+                                $(".textvalidcode").select().focus();
+                            }
+                        }
+                    });
+                }
+            });
+
+            //点击绑定按钮
+            $(document).on("touchstart", ".btn-submit", function () {
+                if (bindMobile()) {
+
+                    //验证码输入是否有效
+                    $.ajax({
+                        type: 'post',
+                        dataType: 'json',
+                        data: { "mobile": $(".mobile").val(), "captcha": $(".mobilecode").val(), "appID": 26, "appName": "mobile中文" },
+                        url: ajaxUrl + 'MobileLogin',
+                        success: function (data) {
+                            if (data.appResult.iResultCode == 0) {
+                                alert("绑定成功");
+                                $(".alert-mask,.alert-dialog").fadeOut(500);
+                                window.location.reload();
+                            }
+                            else {
+                                alert(data.appResult.strResultDescription);
+                            }
+                        }
+                    });
+                }
+            });
+
+
+            //点击解除绑定按钮
+            $(document).on("touchstart", ".btn-unbind", function () {
+                if (confirm("确定要解除绑定？")) {
+                    $.ajax({
+                        url: "/User/WeiXinUnBindAccount",
+                        type: "post",
+                        data: {},
+                        success: function (data) {
+                            if (data) {
+                                alert("解除绑定成功！");
+                                window.location.reload();
+                            }
+                        }
+                    });
+                }
+            });
+
+            function bindMobile() {
+                var mobile = $(".mobile").val();
+                var validcode = $(".validcode").val();
+                var mobilecode = $(".mobilecode").val();
+                if (mobile == "") {
+                    alert("请输入手机号");
+                    return false;
+                } else if (!/^1[\d]{10}$/.test(mobile)) {
+                    alert("请输入正确的手机号");
+                    return false;
+                }
+                else if (mobilecode == "") {
+                    alert("请输入验证码");
+                    return false;
+                }
+                else if (mobilecode.length < 4) {
+                    alert("验证码格式错误");
+                    return false;
+                }
+                else {
+                    return true;
+                }
+            }
+
+
+
+            //如果用户没有登录就点击订单或者优惠券，就触发点击绑定账号事件
+            $(".nav-list .list-item").click(function () {
+                if ($(this).attr("userid") == "0") {
+                    $(".btn-bind").click();
+                }
+            });
+
+        });
+        //倒计时
+        function fnCountdown() {
+            countDown--;
+            if (countDown == -1) {
+                $(".btn-valid").addClass("btn-danger").text("验证");
+                countDown = 61;
+            }
+            else {
+                $(".btn-valid").removeClass("btn-danger").text("重新发送(" + countDown + ")");
+                setTimeout("fnCountdown()", 1000);
+            }
+        }
+
+
+        //发送同步请求获取手机验证码
+        function getValidImage(mobile) {
+            $("#phoneImage").attr("src", ajaxUrl + 'GetPhoneValidCodeForH5?MobilePhone=' + mobile + '&n=' + Math.random(1, 10000));
+            //$.ajax({
+            //    type: 'post',
+            //    dataType: 'json',
+            //    data: { "MobilePhone": mobile },
+            //    url: ajaxUrl + 'GetPhoneValidCodeForH5',
+            //    asnyc: false,
+            //    success: function (data) {
+            //        //{"iResultCode":0,"strResultDescription":"验证码发送成功","strPhoneValidUrl":"http://pic.biyabi.com/validcode_image/2016/7/9/20160709104503_2289_5041.jpg"}
+            //        if (data.iResultCode == 0) {
+            //            $("#phoneImage").attr("src", data.strPhoneValidUrl);
+
+            //        }
+            //        //else {
+            //        //    alert("网络错误，请稍后再试！");
+            //        //}
+
+            //    }
+            //});
+
+        }
+
+    </script>
+</body>
+</html>

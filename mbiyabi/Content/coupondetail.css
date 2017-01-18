@@ -1,0 +1,82 @@
+﻿body {
+    margin:0 0 49px;
+    background: #fff;
+}
+.clearfix:after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 0;
+    clear: both;
+}
+.uc-header .other-control {
+    width: auto;
+    height: 49px;
+    padding-right:10px;
+    background: none;
+    font-size: 1.6rem;
+}
+.yhq-item {
+    padding: 0 0 0 10px;
+}
+
+.yhq-item .left-img {
+    width: 70%;
+    background: url('../images/img_bg_yhq.png') no-repeat;
+    background-size: 100% 100%;
+}
+.section-box {
+padding: 10px;
+}
+.section-box h1 {
+    margin: 30px 0 0 0;
+    font-size: 14px;
+}
+.section-box p {
+    margin-bottom: 4px;
+    line-height: 22px;
+    font-size: 13px;
+}
+
+.bottom {
+margin: 10px 0 0 0;
+text-align: center;
+}
+
+.bottom .btn-box a {
+    display: inline-block;
+    padding: 12px 24px;
+    background: #fd465c;
+    color: #fff;
+    font-size: 15px;
+    border-radius: 3px;
+}
+.bottom .desc {
+    margin: 10px 0 20px;
+    font-size: 14px;
+}
+.bottom .desc p {
+    margin: 0 0 10px;
+}
+.bottom .desc p span:first-of-type {
+    margin: 0 40px 0 0;
+}
+.bottom .desc p i {
+    color: #fd465c;
+}
+.footbar{
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:49px;
+    line-height:49px;
+    text-align:center;
+}
+.footbar .btn-danger{
+    display:block;
+    height:49px;
+    background:#fd465c;
+    font-size:18px;
+    color:#fff;
+}

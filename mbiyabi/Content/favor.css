@@ -1,0 +1,56 @@
+﻿.st-header .go-back {
+    left: 0;
+    background: url('../images/back.png') no-repeat center center;
+    background-size: 25px 25px;
+}
+.tabnav {
+    background:#fff;
+    text-align:center;
+}
+.tabnav a{
+    padding:10px;
+    color:#333;
+    border-bottom:1px solid #fff;
+}
+.tabnav a.active{
+    color:#e72b41;
+    border-color:#e72b41;
+}
+.recommend-lists {
+    display:none;
+}
+.recommend-lists.active {
+    display:block;
+}
+.text-danger {
+    color:#e72b41;
+}
+
+/*晒单*/
+.shaidan-list .pro-item {
+    padding:0 0 10px;
+    border:1px solid #e3e3e3;
+}
+.shaidan-info{
+    margin-top:5px;
+}
+.pro-item a .shaidan-info p:first-of-type{
+    display:block!important;
+    height:auto;
+    margin-top:0;
+    white-space:nowrap;
+    color:#000;
+}
+.face-box {
+    width:40px;
+    height:40px;
+    margin-right:5px;
+    border:1px solid #e2e2e2;
+    border-radius:50%;
+}
+.face-box img {
+    width:100%;
+    max-width:100%;
+    max-height:100%;
+    border-radius:20px;
+}

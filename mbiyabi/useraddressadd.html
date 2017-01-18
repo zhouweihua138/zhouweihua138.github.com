@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>新增地址 - 比呀比海外购</title>
+    <link rel="stylesheet" href="Content/style.css">
+    <link rel="stylesheet" href="Content/hDialog.css">
+</head>
+<body>
+    <div class="down-app">
+        <a class="logo-img" href="javascript:;"></a>
+        <div>
+            <p>新用户注册立赠<span><b>200</b>元</span>优惠券</p>
+            <p>开启高品质跨境购物之旅</p>
+        </div>
+        <a class="close-download" href="javascript:;"></a>
+        <a class="download-img" href="/down">下载APP</a>
+    </div>
+    <div class="header-box">
+        <div class="ub uc-header header">
+            <a class="ub go-back" href="javascript:history.back();"></a>
+            <h4 class="ub-f1">新增地址</h4>
+            <a class="ub save-info" href="javascript:;" data-type="add"></a>
+        </div>
+    </div>
+
+
+    <div class="edit-address-info">
+        <form id="frmInsert" action="/User/UserAddressInsert" method="post">
+            <div class="ai-item cl">
+                <span>收货人</span>
+                <input id="p_strContacts" name="p_strContacts" type="text" class="input-text" placeholder="收货人">
+            </div>
+            <div class="ai-item cl">
+                <span>身份证号码</span>
+                <input id="p_strIDCardNumber" name="p_strIDCardNumber" type="text" class="input-text" placeholder="身份证号码">
+            </div>
+            <div class="ai-item cl">
+                <span>联系电话</span>
+                <input id="p_strMobilePhone" name="p_strMobilePhone" type="text" class="input-text" maxlength="11" placeholder="联系电话">
+            </div>
+            <div class="ub ai-item cl">
+                <div class="ub" style="width:26%;">所在地区</div>
+                <select class="ub ub-f1" id="Province" name="Province">
+                    <option selected="selected">--请选择--</option>
+                </select>
+                <select class="ub ub-f1" id="City" name="City">
+                    <option selected="selected">--请选择--</option>
+                </select>
+                <select class="ub ub-f1" id="Distinct" name="Distinct">
+                    <option selected="selected">--请选择--</option>
+                </select>
+            </div>
+            <div class="ai-item cl">
+                <span>街道地址</span>
+                <input id="p_strAddress" name="p_strAddress" type="text" class="input-text" placeholder="街道地址">
+            </div>
+            <div class="ai-item cl">
+                <span>邮编</span>
+                <input id="p_strZipCode" name="p_strZipCode" type="text" class="input-text" placeholder="邮编">
+            </div>
+            <!--省市联动-->
+            <input type="hidden" id="p_strProvinceCode" name="p_strProvinceCode" />
+            <input type="hidden" id="p_strProvinceName" name="p_strProvinceName" />
+            <input type="hidden" id="p_strCityCode" name="p_strCityCode" />
+            <input type="hidden" id="p_strCityName" name="p_strCityName" />
+            <input type="hidden" id="p_strDistrictCode" name="p_strDistrictCode" />
+            <input type="hidden" id="p_strDistrictName" name="p_strDistrictName" />
+
+            <!--正面-->
+            <input type="hidden" class="zm" id="p_strIDCardFrontImage" name="p_strIDCardFrontImage" />
+            <!--反面-->
+            <input type="hidden" class="fm" id="p_strIDCardBackImage" name="p_strIDCardBackImage" />
+        </form>
+
+        <form id="frmUploadImg" enctype="multipart/form-data" action="/Upload/UploadIDCartImageBase64">
+            <div class="ai-item upload-id-img">
+                <p>上传身份证照片</p>
+                <div class="img-box">
+                    <div class="positive-img">
+                        <input type="file" id="img1" name="zm" class="inputFile">
+                        <label for="img1">
+                            <img src="images/fm-img.png" id="preview">
+                        </label>
+                    </div>
+                    <div class="opposite-img">
+                        <input type="file" id="img2" name="fm" class="inputFile">
+                        <label for="img2">
+                            <img src="images/zm-img.png" id="preview2">
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script src="/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/scripts/jquery.cookie.js"></script>
+    <script src="/scripts/MyAjaxForm.js"></script>
+    <script src="/scripts/hDialog.js"></script>
+    <script src="/scripts/public.js"></script>
+    <script src="/scripts/mobileaddress.js"></script>
+    <script src="/scripts/mobileinsertaddress.js"></script>
+</body>
+</html>

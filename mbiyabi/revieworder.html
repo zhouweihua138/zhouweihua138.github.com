@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>评价订单 - 比呀比海外购</title>
+    <link rel="stylesheet" href="Content/base.css">
+    <link rel="stylesheet" href="Content/hDialog.css">
+    <link rel="stylesheet" href="Content/style.css">
+    <link rel="stylesheet" href="Content/order-comment.css">
+</head>
+<body>
+    <div class="down-app">
+        <a class="logo-img" href="javascript:;"></a>
+        <div>
+            <p>新用户注册立赠<span><b>200</b>元</span>优惠券</p>
+            <p>开启高品质跨境购物之旅</p>
+        </div>
+        <a class="close-download" href="javascript:;"></a>
+        <a class="download-img" href="/down">下载APP</a>
+    </div>
+    <div class="navbar-box">
+        <header class="navbar ub">
+            <a class="ub navbar-btn navbar-btn-left" href="javascript:history.back();">
+                <img class="ub" src="../images/back2.png" alt="返回" />
+            </a>
+            <h1 class="ub-f1">评价订单</h1>
+            <a class="ub navbar-btn navbar-btn-right" href="javascript:;">
+                <img class="ub" src="../images/icon_ok_white.png" alt="提交">
+            </a>
+        </header>
+    </div>
+    <form id="frm" action="/User/UserReviewOrder" method="post">
+        <div class="section-box order-id">
+            订单编号：<span id="iOrderIDText"></span>
+        </div>
+        <div class="section-box goods-item">
+            <ul>
+                <!--@foreach (var oc in Model.listOrdersCommodity)
+                {
+                <li class="item-detail ub">
+                    <div class="goods-img-box">
+                        <img src="@oc.strMainImage">
+                    </div>
+                    <div class="goods-text ub-f1">
+                        <p>@oc.strInfoTitle</p>
+                        <p><span>@oc.strCommodityTagName </span><span class="pull-right">x<label>@oc.iQuantity</label></span></p>
+                        <p>￥<label>@oc.decChinaPrice</label></p>
+                    </div>
+                </li>
+                }-->
+
+            </ul>
+        </div>
+
+        <!--评论 begin-->
+        <div class="section-box">
+            <ul class="ub leavel">
+                <li class="ub ub-f1 ub-ac ub-pc" iReviewType="1">
+                    <a class="btn-nice" href="javascript:;">好评</a>
+                </li>
+                <li class="ub ub-f1 ub-ac ub-pc" iReviewType="2">
+                    <a class="btn-normal" href="javascript:;">中评</a>
+                </li>
+                <li class="ub ub-f1 ub-ac ub-pc" iReviewType="3">
+                    <a class="btn-soso" href="javascript:;">差评</a>
+                </li>
+            </ul>
+            <p class="comment-title">给订单评分</p>
+
+            <input type="hidden" id="iOrderID" name="iOrderID" value="" />
+            <input type="hidden" id="iReviewType" name="iReviewType" value="" />
+            <input type="hidden" id="decAccordWithDescription" name="decAccordWithDescription" value="" />
+            <input type="hidden" id="decService" name="decService" value="" />
+            <input type="hidden" id="decDeliverySpeed" name="decDeliverySpeed" value="" />
+            <input type="hidden" id="decLogisticsSpeed" name="decLogisticsSpeed" value="" />
+            <ul class="star-list">
+                <li>
+                    描述相符：
+                    <img src="../images/icon_star_left.png" alt="0.5" width="12" /><img src="../images/icon_star_right.png" alt="0.5" width="12" height="24" />
+                    <img src="../images/icon_star_left.png" alt="0.5" width="12" /><img src="../images/icon_star_right.png" alt="0.5" width="12" height="24" />
+                    <img src="../images/icon_star_left.png" alt="0.5" width="12" /><img src="../images/icon_star_right.png" alt="0.5" width="12" height="24" />
+                    <img src="../images/icon_star_left.png" alt="0.5" width="12" /><img src="../images/icon_star_right.png" alt="0.5" width="12" height="24" />
+                    <img src="../images/icon_star_left.png" alt="0.5" width="12" /><img src="../images/icon_star_right.png" alt="0.5" width="12" height="24" />
+                </li>
+                <li>
+                    服务态度：
+                    <img src="../images/icon_star_left.png" alt="0.5" width="12" /><img src="../images/icon_star_right.png" alt=".5" width="12" height="24" />
+                    <img src="../images/icon_star_left.png" alt="0.5" width="12" /><img src="../images/icon_star_right.png" alt=".5" width="12" height="24" />
+                    <img src="../images/icon_star_left.png" alt="0.5" width="12" /><img src="../images/icon_star_right.png" alt=".5" width="12" height="24" />
+                    <img src="../images/icon_star_left.png" alt="0.5" width="12" /><img src="../images/icon_star_right.png" alt=".5" width="12" height="24" />
+                    <img src="../images/icon_star_left.png" alt="0.5" width="12" /><img src="../images/icon_star_right.png" alt=".5" width="12" height="24" />
+                </li>
+                <li>
+                    发货速度：
+                    <img src="../images/icon_star_left.png" alt="0.5" width="12" /><img src="../images/icon_star_right.png" alt="0.5" width="12" height="24" />
+                    <img src="../images/icon_star_left.png" alt="0.5" width="12" /><img src="../images/icon_star_right.png" alt="0.5" width="12" height="24" />
+                    <img src="../images/icon_star_left.png" alt="0.5" width="12" /><img src="../images/icon_star_right.png" alt="0.5" width="12" height="24" />
+                    <img src="../images/icon_star_left.png" alt="0.5" width="12" /><img src="../images/icon_star_right.png" alt="0.5" width="12" height="24" />
+                    <img src="../images/icon_star_left.png" alt="0.5" width="12" /><img src="../images/icon_star_right.png" alt="0.5" width="12" height="24" />
+                </li>
+                <li>
+                    物流速度：
+                    <img src="../images/icon_star_left.png" alt="0.5" width="12" /><img src="../images/icon_star_right.png" alt="0.5" width="12" height="24" />
+                    <img src="../images/icon_star_left.png" alt="0.5" width="12" /><img src="../images/icon_star_right.png" alt="0.5" width="12" height="24" />
+                    <img src="../images/icon_star_left.png" alt="0.5" width="12" /><img src="../images/icon_star_right.png" alt="0.5" width="12" height="24" />
+                    <img src="../images/icon_star_left.png" alt="0.5" width="12" /><img src="../images/icon_star_right.png" alt="0.5" width="12" height="24" />
+                    <img src="../images/icon_star_left.png" alt="0.5" width="12" /><img src="../images/icon_star_right.png" alt="0.5" width="12" height="24" />
+                </li>
+            </ul>
+            <textarea id="strReviewContent" name="strReviewContent" class="text-comment" maxlength="500" rows="5" placeholder="评论字数不多于500"></textarea>
+        </div>
+        <!--评论 end-->
+    </form>
+
+    <script src="/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/scripts/jquery.cookie.js"></script>
+    <script src="/scripts/hDialog.js"></script>
+    <script src="/scripts/public.js"></script>
+    <script src="/scripts/revieworder.js"></script>
+</body>
+</html>

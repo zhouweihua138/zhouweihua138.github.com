@@ -1,0 +1,87 @@
+﻿/* 
+ * CreateBy: wywar
+ * CreateTime: 2016-6-21
+ * Email: zhouweihua@biyabi.com
+ * 积分规则-页面样式
+ */
+
+/* 顶部导航栏 */
+body{
+    margin-top:49px;
+    background:#f1f0f5;
+}
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:49px;
+    line-height:49px;
+    background:#fff;
+    color:#222;
+    z-index:9999;
+}
+.navbar .navbar-btn{
+    height:49px;
+    width:49px;
+    padding:12px 10px;
+    -webkit-box-align:center;
+    -webkit-box-pack:center;
+}
+.navbar .navbar-btn img{
+    max-height:100%;
+}
+.navbar h1{
+    font-size:18px;
+    font-weight:400;
+    text-align:center;
+}
+
+.section-box{
+    margin:10px 0;
+    padding:10px 0;
+    background:#fff;
+    border-top:1px solid #e9e9e9;
+    border-bottom:1px solid #e9e9e9;
+}
+.section-box-title{
+    padding:0 10px;
+    color:#000;
+    font-size:14px;
+    font-weight:400;
+}
+.text-red {
+    color:#e72b41;
+}
+.section-box li{
+    padding:10px 0;
+    color:#767676;
+    border-top:1px solid #e9e9e9;
+}
+ 
+.rule-info{
+    margin-top:0;
+    padding:0;
+    color:#757575;
+}
+.rule-info ul li{
+    padding:10px;
+    color:#000;
+    border:none;
+    border-bottom: 1px solid #e9e9e9;
+}
+.rule-info ul li:first-of-type{
+    padding:5px 10px;
+    color:#999;
+}
+.rule-info ul li:first-of-type span{
+    color:#999;
+}
+.rule-info ul li span{
+    color:#e72c41;
+}
+.rule-info ul li p{
+    text-align:right;
+    color:#999;
+}
+/* 积分规则页面 end */

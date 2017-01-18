@@ -1,0 +1,93 @@
+﻿body{
+    padding:0 0 49px;
+}
+i{
+    font-style:normal;
+}
+.uc-header .other-control{
+    right:0;
+    width:auto;
+    padding-right:15px;
+    background:none;
+    font-size:1.6rem;
+}
+
+.coupon-list li{
+    padding:10px;
+    background:#fff;
+}
+.coupon-list li .left{
+    width:70%;
+    background:url(../images/left-img.png) no-repeat;
+    background-size:100% 100%;
+}
+.content-box{
+    padding:10px;
+    text-align:center;
+}
+.content-box i{
+    font-size:18px;
+    font-weight:600;
+}
+.content-box b{
+    margin:0 6px 0 0;
+    font-size:36px;
+    line-height:36px;
+    font-weight:600;
+}
+.content-box h5{
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+.content-box span{
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+.content-box p{
+    margin-top:4px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    background:#000;
+    color:#fff;
+    text-align:center;
+}
+.coupon-list li .right{
+    background:url(../images/right-img.png) no-repeat;
+    background-size:100% 100%;
+}
+.coupon-list a{
+    color:#000;
+}
+.coupon-list .exchange-btn {
+    display:block;
+    width: 66px;
+    height: 28px;
+    color: #fff;
+    background: #fd465c;
+    text-align: center;
+    line-height: 28px;
+    border-radius: 5px;
+}
+.footbar{
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:49px;
+    line-height:49px;
+    text-align:center;
+}
+.footbar .btn-add-coupon{
+    display:block;
+    height:49px;
+    background:#fd465c;
+    font-size:18px;
+    color:#fff;
+}
+.footbar .btn-add-coupon img{
+    width:18px;
+    margin-right:6px;
+}

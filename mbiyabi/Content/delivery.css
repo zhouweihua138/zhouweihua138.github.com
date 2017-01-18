@@ -1,0 +1,208 @@
+﻿/* 
+ * CreateBy: wywar
+ * CreateTime: 2016-6-24
+ * Email: zhouweihua@biyabi.com
+ * 物流详情-页面样式
+ */
+
+/* 顶部导航栏 */
+.navbar-box {
+    position:relative;
+    width:100%;
+    height:49px;
+}
+.navbar{
+    width:100%;
+    height:49px;
+    line-height:49px;
+    background:#e72b41;
+    color:#fff;
+    border-bottom:1px solid #e4e4e4;
+    z-index:9999;
+}
+.navbar .navbar-btn{
+    height:49px;
+    width:49px;
+    padding:12px 10px;
+    -webkit-box-align:center;
+    -webkit-box-pack:center;
+}
+.navbar .navbar-btn img{
+    max-height:100%;
+}
+.navbar h1{
+    font-size:18px;
+    font-weight:400;
+    text-align:center;
+}
+/*头部摘要提示--公司，单号*/
+.tips{
+    padding:10px;
+    background:#fffdd0;
+    color:#666666;
+}
+.section-box{
+    margin:15px 0;
+    padding:10px;
+    background:#fff;
+    border-top:1px solid #e8e8e8;
+    border-bottom:1px solid #e8e8e8;
+}
+.order-item .item-detail {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -o-box;
+    display: box;
+    padding:10px 0;
+    line-height:21px;
+    border-bottom:1px solid #f2f2f2;
+}
+.order-item .item-detail:last-of-type {
+    border:none;
+}
+/*物流查询页面的商品信息列表*/
+.delivery-top-id {
+    padding:10px;
+    background:#fff;
+    color:#6e6e6e;
+}
+.order-item-style2 {
+    margin:0;
+    padding:0;
+    background:none;
+    border:none;
+}
+.order-item-style2 .item-detail {
+    margin:10px 0;
+    padding:10px;
+    background:#fff;
+    line-height:21px;
+}
+.order-item-style2 .order-text p:nth-of-type(3) {
+    color:#a1a1a1;
+}
+.has-angle{
+    color:#4a4a4a;
+}
+.has-angle .fa{
+    color:#cecece;
+}
+
+
+.item-detail .order-img-box {
+    width: 70px;
+    height: 70px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    margin-right: 10px;
+    -webkit-box-align:center;
+    -webkit-box-pack:center;
+    border:1px solid #ededed;
+}
+.order-img-box > img {
+    width:auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+.item-detail .order-text {
+     flex: 1; 
+     -webkit-flex: 1; 
+     display:block; 
+}
+.order-text p:nth-of-type(2) {
+    color: #919191;
+}
+.order-text p:nth-of-type(3) {
+    text-align:right;
+}
+
+.timeline{
+    padding-right:0;
+}
+.timeline h4{
+    font-size:14px;
+    font-weight:400;
+}
+.timeline-box li {
+    list-style: none;
+    font-size:13px;
+    overflow: hidden;
+}
+.timeline-title{
+    padding: 10px 0 0 10px;
+    margin-left: 15px;
+    border-left: 1px solid #dfdfe0;
+}
+.timeline-circle {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    left: -18px;
+    margin-top: 0;
+}
+.timeline-title-first .timeline-circle{
+    display: inline-block;
+    position: relative;
+    left: -22px;
+    height:32px;
+    overflow: hidden;
+    background-color: #fff;
+    margin-top: -10px;
+    padding-top: 10px;
+}
+.timeline-box li:last-of-type .timeline-circle {
+    display: inline-block;
+    position: relative;
+    left: -18px;
+    overflow: hidden;
+    margin-top:0;
+    padding-top: 0;
+}
+
+.icon-circle{
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background:#dfdfe0;
+    vertical-align: text-bottom;
+    font-style: normal;
+    overflow: hidden;
+    border-radius:50%;
+}
+.icon-circle-green{
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    background:#1ba957;
+    vertical-align: text-bottom;
+    font-style: normal;
+    border:4px solid #b8e4cb;
+    overflow: hidden;
+}
+.timeline-info{
+    padding:0 0 10px;
+    color: #9c9c9c;
+    font-weight: 400;
+    border-bottom: solid 1px #f2f2f2;
+}
+.timeline-title-first .timeline-info{
+    position:relative;
+    left:-10px;
+    color: #1ba957;
+}
+.timeline-info p:last-of-type{
+    margin-top:6px;
+}
+.timeline-info a{
+    color:#9c9c9c;
+}
+.timeline-info .has-angle{
+    padding:0 10px 0 0;
+}
+.timeline-info .has-angle .fa{
+    color:#ccc;
+}
+.timeline-info .has-angle p{
+    padding:0 6px 0 0;
+}

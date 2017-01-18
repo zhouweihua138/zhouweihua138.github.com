@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <meta content="telephone=no" name="format-detection" />
+    <title>尺码对照表 - 比呀比海外购</title>
+    <link rel="stylesheet" href="Content/style.css">
+    <style type="text/css">
+        .pinch-zoom,
+        .pinch-zoom img {
+            width: 100%;
+            -webkit-user-drag: none;
+        }
+        #childshoes, #manshoes, #womenshoes {
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <div class="down-app">
+        <a class="logo-img" href="javascript:;"></a>
+        <div>
+            <p>新用户注册立赠<span><b>200</b>元</span>优惠券</p>
+            <p>开启高品质跨境购物之旅</p>
+        </div>
+        <a class="close-download" href="javascript:;"></a>
+        <a class="download-img" href="/down">下载APP</a>
+    </div>
+    <div class="header-box">
+        <div class="ub uc-header header">
+            <a class="ub go-back" href="javascript:history.back();"></a>
+            <h4 class="ub-f1">尺码对照表</h4>
+            <a class="ub" href="javascript:;" data-type="0"></a>
+        </div>
+    </div>
+
+    <div class="page">
+        <div class="pinch-zoom">
+            <div id="childshoes">
+                <img src="http://picture.biyabi.com/group1/M00/09/CC/Co00xFhy-U-ARPfhAACtapD7znA815.jpg" alt="童鞋尺码对照表" />
+            </div>
+            <div id="manshoes">
+                <img src="http://picture.biyabi.com/group1/M00/09/CC/Co00xFhy-XKAGKtjAAMatXiSG30361.jpg" alt="男鞋尺码对照表" />
+            </div>
+            <div id="womenshoes">
+                <img src="http://picture.biyabi.com/group1/M00/09/CC/Co00xFhy-YeAMCC7AAMB5yeBUC4095.jpg" alt="女鞋尺码对照表" />
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/jquery-2.2.0.min.js"></script>
+    <script src="scripts/jquery.cookie.js"></script>
+    <script src="scripts/public.js"></script>
+    <script src="scripts/underscore-min.js" type="text/javascript"></script>
+    <script src="scripts/pinchzoom.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            if (!getHasHistory()) {   //如果当前页没有历史记录
+                $(".uc-header .go-back").removeClass("go-back").attr("href", "javascript:;");
+            }
+
+            var url = window.location.href;
+            //p = url.match(/shoesize.html?type=(\S*)/);
+            p = url.match(/type=(\S*)/);
+            var type = p != null ? p[1] : "";
+
+            if (type == "childshoes") {
+                $('#childshoes').show();
+            } else if (type == "manshoes") {
+                $('#manshoes').show();
+            } else {
+                $('#womenshoes').show();
+            }
+
+
+            //缩放图片
+            $('.pinch-zoom').each(function () {
+                new RTP.PinchZoom($(this), {});
+            });
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>绑定优惠券 - 比呀比海外购</title>
+    <link rel="stylesheet" type="text/css" href="/Content/base.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/hDialog.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/style.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/coupon-add.css" />
+</head>
+<body ontouchstart>
+    <div class="down-app">
+        <a class="logo-img" href="javascript:;"></a>
+        <div>
+            <p>新用户注册立赠<span><b>200</b>元</span>优惠券</p>
+            <p>开启高品质跨境购物之旅</p>
+        </div>
+        <a class="close-download" href="javascript:;"></a>
+        <a class="download-img" href="/down">下载APP</a>
+    </div>
+    <div class="navbar-box">
+        <header class="navbar ub">
+            <a class="ub navbar-btn navbar-btn-left" href="javascript:history.back();">
+                <img class="ub" src="../images/icon_angle_left2.png" alt="返回" />
+            </a>
+            <h1 class="ub-f1">绑定优惠券</h1>
+            <a class="ub navbar-btn navbar-btn-right" href="javascript:;"></a>
+        </header>
+    </div>
+
+    <div class="section-box">
+        <form action="/" method="post">
+            <label class="ub">
+                <span>优惠券号码：</span>
+                <input id="code" class="ub ub-f1" type="text" name="code" value="" placeholder="请输入优惠券号码" />
+            </label>
+            <div class="btn-box ub">
+                <a class="ub ub-pc ub-ac ub-f1 btn-cancel" href="javascript:history.back();">取消</a>
+                <input class="ub ub-pc ub-ac ub-f1 btnExchange" type="button" value="确定" id="ke-exchange" />
+            </div>
+        </form>
+    </div>
+
+    <script type="text/javascript" src="/scripts/jquery-2.2.0.min.js"></script>
+    <script type="text/javascript" src="/scripts/jquery.cookie.js"></script>
+    <script type="text/javascript" src="/scripts/public.js"></script>
+    <script type="text/javascript" src="/scripts/hDialog.js"></script>
+    <script>
+        $(function () {
+            if (!getHasHistory()) {   //如果当前页没有历史记录
+                $(".navbar-btn-left").html("").attr("href", "javascript:;");
+            }
+            //verifyLogin();
+            var userInfo = getUserInfo();
+            if (userInfo == undefined) {
+                localStorage.returnUrl = window.location.href;
+                window.location.href = '/userlogin';
+                return;
+            }
+
+            $(".section-box input[type=text]").focus();
+            $("#ke-exchange").click(function () {
+                if ($("#code").val().length == 0) {
+                    //alert("请输入优惠码!");
+                    hDialog.show({ type: 'toast', toastText: '请输入优惠码！', toastTime: 3000, hasMask: false });
+                    return false;
+                }
+                $.ajax({
+                    type: 'post',
+                    dataType: 'json',
+                    data: { "p_iUserID": userInfo.iUserID, "p_strPwd": getstrPwd(), "couponCode": $("#code").val(), "AppID": 26, "AppName": "mobile中文","ClientLanType":1 },
+                    url:ajaxUrl+'BindUserAndCouponCode',
+                    success: function (data) {
+                        //alert(data.CouponReturnDes)
+                        hDialog.show({ type: 'toast', toastText: data.CouponReturnDes, toastTime: 3000, hasMask: false });
+                        if (data.CouponReturnResult) {
+                            window.location.href = '/usercoupon.html';
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>积分规则</title>
+    <link rel="stylesheet" type="text/css" href="Content/style.css">
+    <link rel="stylesheet" type="text/css" href="Content/jifen.css" />
+</head>
+<body>
+    <div class="down-app">
+        <a class="logo-img" href="javascript:;"></a>
+        <div>
+            <p>新用户注册立赠<span><b>200</b>元</span>优惠券</p>
+            <p>开启高品质跨境购物之旅</p>
+        </div>
+        <a class="close-download" href="javascript:;"></a>
+        <a class="download-img" href="/down">下载APP</a>
+    </div>
+    <div class="header-box">
+        <div class="ub uc-header header">
+            <a class="ub go-back" href="javascript:history.back();"></a>
+            <h4 class="ub-f1">积分规则</h4>
+            <a class="ub" href="javascript:;" data-type="0"></a>
+        </div>
+    </div>
+    <div class="rule-lists cl">
+        <div class="reward-rule cl">
+            <span>奖励行为</span>
+            <span>获得积分金币</span>
+        </div>
+        <div class="rule-item">
+            <p>
+                <span>注册</span>
+                <span>+20 积分</span>
+            </p>
+        </div>
+        <div class="rule-item">
+            <p>
+                <span>首次上传头像</span>
+                <span>+20 积分</span>
+            </p>
+        </div>
+        <div class="rule-item">
+            <p>
+                <span>每日签到</span>
+                <span>+5~50 积分</span>
+            </p>
+        </div>
+        <div class="rule-item">
+            <p>
+                <span>一次点赞操作</span>
+                <span>+1 积分</span>
+            </p>
+            <p class="p2">每天上限50积分</p>
+        </div>
+        <div class="rule-item">
+            <p>
+                <span>成功晒单</span>
+                <span>+10 积分</span>
+            </p>
+            <p class="p2">每天上限50积分</p>
+        </div>
+        <div class="rule-item">
+            <p>
+                <span>晒单精选</span>
+                <span style="float:right;color: #FD5475;">+20 金币</span>
+                <span style="float: right;margin-right: 10px;color: #FD5475;">+50 积分</span>
+            </p>
+            <p class="p2"></p>
+        </div>
+        <div class="rule-item">
+            <p>
+                <span>商品、晒单等评论</span>
+                <span>+2金币</span>
+            </p>
+            <p class="p2">每日上限20金币</p>
+        </div>
+        <div class="rule-item">
+            <p>
+                <span>成功爆料</span>
+                <span>+10 积分</span>
+            </p>
+            <p class="p2">每日上限20积分</p>
+        </div>
+        <div class="rule-item">
+            <p>
+                <span>分享活动、专题、商品链接</span>
+                <span>+5 金币</span>
+            </p>
+            <p class="p2">每日上限30金币</p>
+        </div>
+        <div class="rule-item">
+            <p>
+                <span>各类活动</span>
+                <span>不限</span>
+            </p>
+        </div>
+    </div>
+
+    <script src="/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/scripts/jquery.cookie.js"></script>
+    <script src="/scripts/public.js"></script>
+
+    <script>
+        $(function () {
+            if (!getHasHistory()) {   //如果当前页没有历史记录
+                $(".uc-header .go-back").removeClass("go-back").attr("href", "javascript:;");
+            }
+        })
+    </script>
+</body>
+</html>

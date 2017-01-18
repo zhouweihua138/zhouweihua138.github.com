@@ -1,0 +1,229 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>确认订单 - 比呀比海外购</title>
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="email=no" />
+    <meta name="format-detection" content="adress=no" />
+    <link rel="stylesheet" type="text/css" href="Content/hDialog.css" />
+    <link rel="stylesheet" type="text/css" href="Content/style.css" />
+    <link rel="stylesheet" type="text/css" href="Content/orderstyle.css" />
+    <link rel="stylesheet" type="text/css" href="Content/order_address_yhq.css" />
+</head>
+<body class="o-bd">
+    <div class="down-app">
+        <a class="logo-img" href="javascript:;"></a>
+        <div>
+            <p>新用户注册立赠<span><b>200</b>元</span>优惠券</p>
+            <p>开启高品质跨境购物之旅</p>
+        </div>
+        <a class="close-download" href="javascript:;"></a>
+        <a class="download-img" href="/down">下载APP</a>
+    </div>
+    <div class="header-box">
+        <div class="ub st-header header" id="header">
+            <a class="ub top-a go-back" href="javascript:history.back();"></a>
+            <h4 class="ub-f1">确认订单</h4>
+            <a class="ub top-a" href="javascript:;"></a>
+        </div>
+    </div>
+    <form id="frmCommitOrder" action="/createorders.html" method="get">
+
+        <input type="hidden" id="listCommodity" name="listCommodity" value="" />
+
+        <div class="tips">
+            <i class="icon-tips"></i>
+            <p>小提示：如遇商品价格上涨、卖家限购、缺货或下单时已过促销期等原因，会导致直购不成功，所付款项将全额原路返回，请比友理解。</p>
+        </div>
+        <div class="address-box">
+            <div class="content onselected" style="display:none;">
+                <input type="hidden" id="hide_AddressNumber" name="iAddressNumber" />
+                <h1>
+                    <span><i class="icon-user"></i><span id="contacts">张三</span></span>
+                    <span><i class="icon-tel"></i><span id="mobile">13832644589</span></span>
+                </h1>
+                <p id="idcard">4512365124****5896</p>
+                <p id="district">广东省广州市天河区</p>
+                <p id="address">天河北路626号保利中宇广场A座1302</p>
+            </div>
+            <div class="content unselected clearfix">
+                <img class="pull-left" src="../images/icon_map.png" alt="地址" height="30" /><span class="pull-left">请选择收货地址</span>
+            </div>
+            <i class="icon-angle-right"></i>
+        </div>
+
+        <!--<div class="div-goods">
+            <div class="goods-box">
+                <div class="g-header clearfix">商家：<h1>美国亚马逊</h1></div>
+                <ul class="ul-product">
+                    <li class="ub" CommodityTagID="334847" Quantity="1" TraderID="168922" TransferLineID="4">
+                        <div class="left">
+                            <a href="#"><img src="http://pic.biyabi.com/MainImage/334847/334847_1471909317.jpg" alt=""></a>
+                        </div>
+                        <div class="ub-f1">
+                            <a href="#"><h1>Ghirardelli 100%纯天然 无糖 黑巧克力</h1></a>
+                            <p>
+                                <span>默认</span>
+                                <span>X<label>1</label></span>
+                            </p>
+                            <p>￥<label>65.79</label></p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="summary">
+                <p class="ub">
+                    <span class="ub ub-f1">商品价格：</span>
+                    <b>￥<label>65.79</label></b>
+                </p>
+                <p class="ub">
+                    <span class="ub ub-f1">本土运费：</span>
+                    <span>￥<label>0.0</label></span>
+                </p>
+                <p class="ub">
+                    <span class="ub ub-f1">国际运费和税费 （商品重量 0.2 kg）</span>
+                </p>
+                <div class="delivery-line">
+                    <i class="icon-angle-up"></i>
+                    <input type="hidden" name="type" value="" />
+                    <ul>
+                        <li class="ub " data-line="4">
+                            <h6 class="ub ub-f1 ub-ac">
+                                <i class="ub icon-radio checked" data-line="4 "></i>
+                                标准线路
+                                <span>
+                                    15-30工作日
+                                </span>
+                                <img class="ub" src="../images/LineJinji.png" alt="" />
+                            </h6>
+                            <div>
+                                <p>运费：￥ 30.0</p>
+                                <p>税费：￥ 0.0</p>
+                            </div>
+                        </li>
+                        <li class="ub " data-line="5">
+                            <h6 class="ub ub-f1 ub-ac">
+                                <i class="icon-radio" data-line="5"></i>
+                                邮政线路
+                                <span>15-30工作日</span>
+                            </h6>
+                            <div>
+                                <p>运费：￥ 60.0</p>
+                                <p>海关抽查,自行缴税</p>
+
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <p class="ub pos-r ubb sc-border upad btn-open-yhq">
+                    <span class="ub ub-f1">
+                        <input type="hidden" class="coupon" value="" />
+                        <i class="icon-cny"></i>
+                        <input type="hidden" id="DiscountType" name="DiscountType" value="1" />
+                        <input type="hidden" id="DisCountPrice" name="DisCountPrice" value="0.0" />
+                        <label class="ke-show1" style="display:none;"></label>
+                        <label class="ke-show2" style="display:inline-block;">
+                            优惠方式 <span class="text-muted">
+                                （优惠券/红包）
+                            </span>
+                        </label>
+
+                    </span>
+                    <span class="yhq-jine">-￥<label class="orderDiscounts">0.0</label></span>
+                    <i class="icon-angle-right"></i>
+                </p>
+                <p class="upad text-right total">
+                    共 1<label>件商品，合计</label>
+                    <b>￥<label class="orderPrice">95.79</label></b>
+                </p>
+            </div>
+        </div>-->
+
+        <div class="agreement">
+            <p class="text-muted">当您选择了我们的服务，即表示您接受了比呀比的</p>
+            <a href="/registerprotocol.html">《服务条款》</a>
+        </div>
+        <!--<div style="height:5rem;"></div>-->
+        <footer class="ub ub-ac">
+            <span class="ub ub-f1">
+                总计：￥<b class="allOrdersTotal"></b>
+            </span>
+            <a href="javascript:;" class="btn-danger">提交订单</a>
+        </footer>
+
+    </form>
+    <!--选择地址页面 begin-->
+    <div class="win-address">
+        <header class="ub">
+            <a class="ub navbar-btn navbar-btn-left" href="javascript:;">
+                <img class="ub" src="../images/icon_angle_left2.png" alt="返回" />
+            </a>
+            <h1 class="ub-f1">选择地址</h1>
+            <a class="ub navbar-btn navbar-btn-right" href="javascript:;">新增</a>
+        </header>
+        <!--没有收货地址-->
+        <div class="no-address">
+            <div class="no-address-content">
+                <img src="../images/icon_map_big.png" alt="地址" />
+                <p>您还没有收货地址哦</p>
+                <p><a class="btn-red" href="javascript:;">添加地址</a></p>
+            </div>
+        </div>
+        <!--已有收货地址 把 display去掉-->
+        <div class="addr-list" style="display:none;">
+            <ul id="addlist"></ul>
+        </div>
+    </div>
+    <!--选择地址页面 end-->
+    <!--选择优惠方式页面 begin-->
+    <div class="win-yhfs">
+        <header class="ub">
+            <a class="ub navbar-btn navbar-btn-left" href="javascript:;">
+                <img class="ub" src="../images/icon_angle_left1.png" alt="返回" />
+            </a>
+            <h1 class="ub-f1">选择优惠券</h1>
+            <a class="ub navbar-btn navbar-btn-right" href="javascript:;"></a>
+        </header>
+        <div class="win-box has-yhq-radio">
+            <label><input type="radio" name="yhq" value="" /><i class="icon-radio"></i>不使用任何优惠码</label>
+        </div>
+
+        <div class="win-box open-popup">
+            <div class="hasicon-box">
+                <img src="../images/icon_cny.png" alt="优惠码" height="20" /><span class="text-red">输入优惠码</span>
+            </div>
+        </div>
+
+        <!--输入兑换码 begin-->
+        <div class="win-mask"></div>
+        <div class="win-box popup-input">
+            <h1>请输入兑换码</h1>
+            <input id="code" type="text" name="code" value="" />
+            <div class="popup-bottom">
+                <a class="link-cancle" href="javascript:;">取消</a>
+                <a class="link-duihuan" href="javascript:;">兑换</a>
+            </div>
+        </div>
+        <!--输入兑换码 end-->
+
+        <div class="win-box">
+            <p class="title">优惠券</p>
+            <ul class="ul-listCoupon"></ul>
+        </div>
+        <div class="footer">
+            <a class="ub ub-ac ub-pc" href="javascript:;">确定</a>
+        </div>
+    </div>
+    <!--选择优惠方式页面 end-->
+
+
+    <script type="text/javascript" src="/scripts/jquery-2.2.0.min.js"></script>
+    <script type="text/javascript" src="/scripts/jquery.cookie.js"></script>
+    <script type="text/javascript" src="/scripts/hDialog.js"></script>
+    <script type="text/javascript" src="/scripts/public.js"></script>
+    <script type="text/javascript" src="/scripts/neworders.js"></script>
+</body>
+</html>

@@ -1,0 +1,323 @@
+*{
+    padding:0;
+    margin:0;
+    word-wrap:break-word;
+    list-style:none;
+}
+*,*:before,*:after{
+    box-sizing:border-box;
+}
+html{
+    font-size:62.5%;
+}
+body{
+    font-family:微软雅黑;
+    background:#fff;
+    font-size:1.4rem;
+}
+a,a:active,a:link{
+    text-decoration:none;
+}
+.cl:after{
+    content:'.';
+    height:0;
+    display:block;
+    clear:both;
+    visibility:hidden;
+}
+.cl{
+    zoom:1;
+}
+img{
+    width:100%;
+    display:block;
+    margin:0 auto;
+}
+i{
+    font-style:normal;
+}
+.active-container{
+    width:100%;
+    position:relative;
+    overflow:hidden;
+}
+.active-header{
+    width:100%;
+    position:absolute;
+    left:0;
+    top:18%;
+}
+.user-login .active-header{
+    top:20%;
+}
+.active-content{
+    width:100%;
+    position:absolute;
+    top:54%;
+    left:0;
+}
+.user-login .active-content{
+    top:62%;
+}
+.active-content > div{
+    position:absolute;
+    z-index:300;
+}
+.rule-content p{
+    text-align:center;
+    color:#fff;
+    opacity:0.8;
+    letter-spacing:2px;
+}
+.rule-content .use-rule{
+    margin-top:20px;
+    margin-bottom:15px;
+}
+.rule-content .text-box{
+    width:80%;
+    margin:0 auto;
+    margin-bottom:10px;
+}
+.text-box span{
+    height:15px;
+    width:18px;
+    padding:0 3px;
+    background:#2eeefd;
+    display:inline-block;
+    float:left;
+    color:#003567;
+    opacity:0.8;
+    line-height:15px;
+    margin-top:2px;
+    text-align:center;
+}
+.text-box p{
+    width:90%;
+    float:left;
+    text-align:left;
+    padding-left:10px;
+    line-height:22px;
+}
+.text-box .p2{
+    margin-left:6%;
+}
+
+/*登录状态下的样式*/
+.user-info{
+    display:none;
+}
+.user-login .active-header .light-box{
+    display:none;
+}
+.user-login .active-header .text-img {
+    top:20%;
+}
+.active-header .text-img {
+    top:20%;
+}
+.user-login .user-info{
+    width:70%;
+    position:absolute;
+    left:15%;
+    top:10px;
+    display:block;
+}
+.user-info .thumb-img{
+    width:70px;
+    height:70px;
+    border:2px solid #fff;
+    border-radius:50%;
+    margin:0 auto;
+}
+.user-info > div{
+    margin-top:10px;
+    width:100%;
+    font-size:1.4rem;
+    font-weight:bold;
+}
+.user-info .div1{
+    width:100%;
+    color:#003567;
+    height:16px;
+    text-align:center;
+    line-height:16px;
+    letter-spacing:1px;
+}
+.center-box{
+    width:auto;
+    display:inline-block;
+}
+.center-box span{
+    display:inline-block;
+    float:left;
+    margin-right:5px;
+}
+.center-box img{
+    display:inline-block;
+    float:left;
+    width:16px;
+    height:16px;
+}
+.user-info .div2{
+    width:80%;
+    color:#003567;
+    margin:0 auto;
+    margin-top:5px;
+}
+.user-info .div2 > div {
+    display:inline-block;
+}
+.user-info .div2 .left-integral{
+    float:left;
+}
+.user-info .div2 .right-gold{
+    float:right;
+}
+.user-info .div2 > div p{
+    text-align:center;
+    margin-top:3px;
+    font-weight:400;
+}
+.user-info .div2 > div p > i{
+    font-weight:bold;
+    font-size:1.8rem;
+    margin-left:3px;
+}
+/****/
+
+/*兑换免邮券*/
+.user-login .myq-dh{
+    width:100%;
+    position:absolute;
+    top:28%;
+    left:0;
+}
+.myq-dh{
+    width:100%;
+    position:absolute;
+    top:10%;
+    left:0;
+}
+.myq-dh .myq-item1{
+    width:80%;
+    margin:0 auto;
+    margin-bottom:10px;
+}
+.myq-dh .myq-item2{
+    width:96%;
+    margin:0 auto;
+    display:flex;
+    display:-webkit-flex;
+}
+.myq-dh .myq-item2 a{
+    flex:1;
+    -webkit-flex:1;
+}
+.how-get{
+    width:100%;
+}
+.how-get a{
+    display:block;
+    color:#003567;
+    text-align:center;
+    margin-top:10px;
+    font-size:1.6rem;
+}
+.center-box img.how-img{
+    margin-right:5px;
+}
+.center-box span.how-span{
+    line-height:16px;
+}
+.dh-btn{
+    width:30%;
+    position:absolute;
+    bottom:-15px;
+    left:50%;
+    margin-left:-15%;
+}
+.xq-bg{
+    width:50%;
+    position:absolute;
+    left:3%;
+    bottom:15px;
+}
+/****/
+
+
+
+/*积分规则样式*/
+.rule-lists{
+    width:100%;
+}
+.rule-lists > div{
+    border-bottom:1px solid #eee;
+}
+.reward-rule{
+    width:100%;
+    padding:10px 12px;
+    color:#999;
+}
+.reward-rule >span:first-child{
+    float:left;
+}
+.reward-rule >span:last-child{
+    float:right;
+}
+.rule-lists .rule-item{
+    padding:12px;
+}
+.rule-item p span:last-of-type{
+    float:right;
+    color:#FD5475;
+}
+.rule-item .p2{
+    text-align:right;
+    color:#999;
+}
+/****/
+
+
+/*iphone 5se或以下*/
+@media screen and (max-width:320px){
+    .user-info .thumb-img {
+        width:60px;
+        height:60px;
+    }
+    .text-box p{
+        font-size:1.2rem;
+        line-height:20px;
+    }
+    .rule-content .text-box {
+        margin-bottom:5px;
+    }
+    .user-login .myq-dh {
+        top:30%;
+    }
+    .myq-dh .myq-item1 {
+        margin-bottom:10px;
+    }
+    .user-login .myq-dh .myq-item1 {
+        margin-bottom:5px;
+    }
+    .how-get a {
+        font-size:1.4rem;
+    }
+    .user-login .user-info .how-get a{
+        margin-top:8px;
+    }
+}
+@media screen and (min-width:400px){
+    .user-login .myq-dh {
+        top:27%;
+    }
+    .text-box p {
+        line-height:22px;
+    }
+    .text-box span {
+        margin-top:3px;
+    }
+    .how-get a {
+        margin-top:15px;
+    }
+}
